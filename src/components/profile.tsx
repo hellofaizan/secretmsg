@@ -20,7 +20,7 @@ export default function ProfileComponent({ session }: { session: any }) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Avatar>
+                <Avatar className='cursor-pointer'>
                     <AvatarImage src={session?.user?.image} />
                     <AvatarFallback>
                         <UserIcon />
