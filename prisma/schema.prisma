@@ -7,23 +7,7 @@ generator client {
 
 datasource db {
     provider = "postgresql"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
-}
-
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
-
-    @@index([name])
 }
 
 // Necessary for Next auth
@@ -46,29 +30,44 @@ model Account {
     @@unique([provider, providerAccountId])
 }
 
-model Session {
-    id           String   @id @default(cuid())
-    sessionToken String   @unique
-    userId       String
-    expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+enum Role {
+    USER
+    ADMIN
 }
 
 model User {
-    id            String    @id @default(cuid())
-    name          String?
-    email         String?   @unique
-    emailVerified DateTime?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
-    posts         Post[]
+    id                String    @id @default(cuid())
+    name              String?
+    email             String?   @unique
+    emailVerified     DateTime?
+    emoji             String?
+    username          String?   @unique
+    usernameUpdatedAt DateTime?
+    about             String?   @default("New to SecretMsg App 😊")
+    joinedAt   DateTime? @default(now())
+    role              Role      @default(USER)
+    Status            Status?
+    accounts          Account[]
+    messages          Message[]
 }
 
-model VerificationToken {
-    identifier String
-    token      String   @unique
-    expires    DateTime
+model Message {
+    id        Int      @id @default(autoincrement())
+    ip        String?
+    city      String?
+    latitude  Float?
+    longitude Float?
+    content   String
+    timestamp DateTime @default(now())
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
 
-    @@unique([identifier, token])
+model Status {
+    id        Int      @id @default(autoincrement())
+    emoji     String?
+    status    String?
+    timestamp DateTime @default(now())
+    userId    String   @unique
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
