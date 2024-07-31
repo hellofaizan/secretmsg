@@ -8,20 +8,20 @@ import { IconBrandDiscord, IconCup } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Header({ session }: any) {
-  const username = session?.user?.username;
+  const user = session?.user;
   return (
     <div className="absolute z-10 mt-10 flex w-full justify-center bg-transparent">
       <div className="flex w-[60%]">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <Image
-              src="/assets/logo.png"
+              src="/assets/logo.jpg"
               className="rounded-md"
               alt="logo"
               width={40}
               height={40}
             />
-            <span className="text-2xl font-bold">Secret Msg</span>
+            <span className="text-2xl font-bold">Whisper Txt</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Header({ session }: any) {
                 <IconBrandDiscord size={32} className="hover:text-[#5865F2]" />
               </Button>
             </Link>
-            {username ? (
+            {user ? (
               <ProfileComponent session={session} />
             ) : (
               <Button

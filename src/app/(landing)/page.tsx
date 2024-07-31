@@ -34,8 +34,8 @@ export default async function HomePage() {
               Message🤐
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-center text-base font-semibold">
-              You have been invited to a secret message. Please login to and
-              start receiving anonymous messages.
+              You have been invited to a <span className="font-bold">Whisper txt</span>. Please login now to
+              start receiving <span className="font-bold">anonymous</span> messages.
             </p>
             <GetUsername session={session} />
           </div>

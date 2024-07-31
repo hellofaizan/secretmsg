@@ -28,13 +28,15 @@ export default function ProfileComponent({ session }: { session: any }) {
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Hello {firstName + ":)"}</DropdownMenuLabel>
+                <DropdownMenuLabel>👋 {firstName}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => {
                     router.push('/dashboard/profile')
                 }}>Profile</DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => {
+                    router.push('https://buymeacoffee.com/hellofaizan')
+                }}>Donate</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => {
                     signOut()

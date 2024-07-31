@@ -38,13 +38,14 @@ enum Role {
 model User {
     id                String    @id @default(cuid())
     name              String?
+    image             String?
     email             String?   @unique
     emailVerified     DateTime?
     emoji             String?
     username          String?   @unique
     usernameUpdatedAt DateTime?
     about             String?   @default("New to SecretMsg App 😊")
-    joinedAt   DateTime? @default(now())
+    joinedAt          DateTime? @default(now())
     role              Role      @default(USER)
     Status            Status?
     accounts          Account[]
