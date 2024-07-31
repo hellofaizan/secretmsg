@@ -10,8 +10,8 @@ import Link from "next/link";
 export default function Header({ session }: any) {
   const user = session?.user;
   return (
-    <div className="absolute z-10 mt-10 flex w-full justify-center bg-transparent">
-      <div className="flex w-[60%]">
+    <div className="absolute z-10 md:mt-10 mt-5 flex w-full justify-center bg-transparent">
+      <div className="flex md:w-[60%] w-full mx-2">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <Image
