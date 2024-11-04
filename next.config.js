@@ -4,7 +4,22 @@
  */
 await import("./src/env.js");
 
+await import("./src/env.js");
+const isProduction = process.env.NODE_ENV === "production";
+
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    eslint: {
+        ignoreDuringBuilds: isProduction,
+      },
+      images: {
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "cdn.discordapp.com",
+          },
+        ],
+      },
+};
 
 export default config;

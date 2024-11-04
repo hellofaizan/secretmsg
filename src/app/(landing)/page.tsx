@@ -29,12 +29,12 @@ export default async function HomePage() {
                 />
               </AnimatedShinyText>
             </Link>
-            <h1 className="flex items-baseline gap-2 text-center text-4xl font-extrabold text-black md:text-5xl">
-              <SparklesText className="text-4xl md:text-5xl" text="Secret" />{" "}
-              Message🤐
+            <h1 className="flex items-baseline gap-2 text-center text-3xl font-extrabold text-black md:text-4xl">
+              <SparklesText className="text-3xl md:text-4xl" text="Pouzz" />{" "}
+              Anonymous messages
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-center text-base font-semibold">
-              You have been invited to a <span className="font-bold">Whisper txt</span>. Please login now to
+              You have been invited to a <span className="font-bold">Pouzz.xyz</span>. Please login now to
               start receiving <span className="font-bold">anonymous</span> messages.
             </p>
             <GetUsername session={session} />

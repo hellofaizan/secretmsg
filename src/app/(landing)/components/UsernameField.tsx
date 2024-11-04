@@ -40,7 +40,7 @@ const GetUsername = ({ session }: any) => {
     if (typeof window !== "undefined") {
       localStorage.setItem("username", data.username);
     }
-    router.push(`/auth?callbackUrl=/dashboard/username?u=${data.username}`);
+    router.push(`/auth?callbackUrl=/dashboard/settings?u=${data.username}`);
   }
 
   return (
@@ -52,7 +52,7 @@ const GetUsername = ({ session }: any) => {
         >
           <div className="flex md:flex-row">
             <p className="font-manrope rounded-l-[6px] bg-neutral-600 bg-opacity-30 p-4 text-neutral-800 backdrop-blur-3xl dark:text-neutral-300 md:px-4">
-              whispertxt.xyz/
+              pouzz.xyz/
             </p>
             <FormField
               control={form.control}

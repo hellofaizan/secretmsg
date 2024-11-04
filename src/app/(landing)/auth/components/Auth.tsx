@@ -6,6 +6,8 @@ import {
   IconBrandGoogle,
   IconBrandDiscord,
   IconBrandFacebook,
+  IconBrandX,
+  IconBrandApple,
 } from "@tabler/icons-react";
 import { signIn } from "next-auth/react";
 import { DEFAULT_LOGIN_REDIRECT } from "@/server/routes";
@@ -15,11 +17,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
+import { Loader } from "lucide-react";
 
 export default function page() {
   const searchParams = useSearchParams();
   const [disabled, setDisabled] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<string>("");
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
       ? "The Email is already in use from different Authentication Provider"
@@ -28,19 +31,14 @@ export default function page() {
   const callbackUrl = searchParams.get("callbackUrl");
 
   // handle click
-  const handleClick = (
-    provider: "google" | "github" | "discord" | "facebook",
-  ) => {
+  const handleClick = (provider: "google" | "twitter" | "apple") => {
     setDisabled(true);
-    setIsLoading(true);
+    setLoading(provider);
     try {
       signIn(provider, { callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT });
     } catch (error) {
       console.error(error);
-      setDisabled(false);
-      setIsLoading(false);
     } finally {
-      setIsLoading(false);
       setDisabled(false);
     }
   };
@@ -50,10 +48,10 @@ export default function page() {
       <Header />
       <div className="mx-auto flex h-screen flex-col items-center justify-center px-4 py-8 lg:py-0">
         <div className="mx-auto w-full max-w-md rounded-sm bg-transparent p-3 shadow-input md:rounded-lg md:p-8">
-          <h2 className="text-3xl font-bold text-center">
-            Login to Whisper Txt
+          <h2 className="text-center text-3xl font-bold">
+            Welcome to Pouzz.xyz
           </h2>
-          <p className="mt-2 max-w-sm text-sm text-neutral-600 text-center">
+          <p className="mt-2 max-w-sm text-center text-sm text-neutral-600">
             Login to start receiving anonymous messages.
           </p>
 
@@ -64,50 +62,48 @@ export default function page() {
             <Button
               onClick={() => handleClick("google")}
               disabled={disabled}
-              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md bg-black px-4 font-medium text-white dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+              variant={"outline"}
+              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md px-4 font-medium"
               type="submit"
             >
-              <IconBrandGoogle className="h-7 w-7 text-white" />
+              {loading === "google" ? (
+                <Loader className="h-6 w-6 animate-spin" />
+              ) : (
+                <IconBrandGoogle className="h-6 w-6" />
+              )}
               <span className="textwhite text-lg">Google</span>
-              <BottomGradient />
             </Button>
 
-            {/* Discord */}
+            {/* X */}
             <Button
-              onClick={() => handleClick("discord")}
+              onClick={() => handleClick("twitter")}
               disabled={disabled}
-              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md bg-black px-4 font-medium text-white dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+              variant={"outline"}
+              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md px-4 font-medium"
               type="submit"
             >
-              <IconBrandDiscord className="text-white h-7 w-7" />
-              <span className="text-lg text-white">Discord</span>
-              <BottomGradient />
+              {loading === "twitter" ? (
+                <Loader className="h-6 w-6 animate-spin" />
+              ) : (
+                <IconBrandX className="h-6 w-6" />
+              )}
+              <span className="textwhite text-lg">Twitter/X</span>
             </Button>
 
-            {/* Facebook */}
+            {/* apple */}
             <Button
-              onClick={() => handleClick("facebook")}
+              onClick={() => handleClick("apple")}
               disabled={disabled}
-              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md bg-black px-4 font-medium text-white dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+              variant={"outline"}
+              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md px-4 font-medium"
               type="submit"
             >
-              <IconBrandFacebook className="text-white h-7 w-7" />
-              <span className="text-lg text-white">Facebook</span>
-              <BottomGradient />
-            </Button>
-
-            {/* Github */}
-            <Button
-              onClick={() => handleClick("github")}
-              disabled={disabled}
-              className="relative flex h-12 w-full items-center justify-start space-x-2 rounded-md bg-black px-4 font-medium text-white dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="submit"
-            >
-              <IconBrandGithub className="h-7 w-7 text-white" />
-              <span className="text-white text-lg">
-                Github
-              </span>
-              <BottomGradient />
+              {loading === "apple" ? (
+                <Loader className="h-6 w-6 animate-spin" />
+              ) : (
+                <IconBrandApple className="h-6 w-6" />
+              )}
+              <span className="textwhite text-lg">Apple</span>
             </Button>
 
             {urlError && <FormError message={urlError} />}

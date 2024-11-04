@@ -21,7 +21,7 @@ export default function Header({ session }: any) {
               width={40}
               height={40}
             />
-            <span className="text-2xl font-bold">Whisper Txt</span>
+            <span className="text-2xl font-bold">Pouzz</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -31,7 +31,7 @@ export default function Header({ session }: any) {
               passHref
             >
               <Button variant={"ghost"} size={"icon"}>
-                <IconCup size={32} className="hover:text-yellow-500" />
+                <IconCup size={28} className="hover:text-yellow-500" />
               </Button>
             </Link>
             <Link
@@ -40,7 +40,7 @@ export default function Header({ session }: any) {
               passHref
             >
               <Button variant={"ghost"} size={"icon"}>
-                <IconBrandDiscord size={32} className="hover:text-[#5865F2]" />
+                <IconBrandDiscord size={28} className="hover:text-[#5865F2]" />
               </Button>
             </Link>
             {user ? (
