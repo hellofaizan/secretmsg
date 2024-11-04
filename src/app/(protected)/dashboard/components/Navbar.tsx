@@ -30,29 +30,10 @@ export default function Navbar({ session }: { session: any }) {
       </Link>
 
       <Link
-        href="/dashboard/inbox"
+        href="/dashboard/analytics"
         className={cn(
           "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-          path === "/dashboard/inbox" && "bg-muted",
-        )}
-        prefetch={false}
-      >
-        <MessageSquare
-          size={25}
-          className={cn(
-            path === "/dashboard/inbox" ? "text-foreground" : "text-gray-500",
-          )}
-        />
-        <span className="text-lg">
-          {path === "/dashboard/inbox" ? "Inbox" : ""}
-        </span>
-      </Link>
-
-      <Link
-        href="/dashboard/feedback"
-        className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-          path === "/dashboard/feedback" && "bg-muted",
+          path === "/dashboard/analytics" && "bg-muted",
         )}
         prefetch={false}
       >

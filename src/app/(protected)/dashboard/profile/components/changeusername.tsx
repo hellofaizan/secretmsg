@@ -9,6 +9,7 @@ import { TriangleAlert, Loader } from "lucide-react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { updateUnameSchema } from "@/schemas";
 import UpdateUsername from "@/actions/updateusername";
+import { useRouter } from "next/navigation";
 
 type formValues = z.infer<typeof updateUnameSchema>;
 
@@ -17,6 +18,7 @@ export default function ChangeUsername(user: any) {
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(true);
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -47,6 +49,7 @@ export default function ChangeUsername(user: any) {
       } finally {
         setLoading(false);
         setDisabled(false);
+        router.refresh();
       }
     });
   };

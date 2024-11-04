@@ -1,6 +1,7 @@
 import Navbar from "./dashboard/components/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/server/auth";
+import PageLink from "./dashboard/components/pagelink";
 
 export default async function DashboardLayout({
   children,
@@ -22,8 +23,9 @@ export default async function DashboardLayout({
 
 function LayoutHeader({ session }: { session: any }) {
   return (
-    <header className="flex top-0 w-full z-30 shrink-0 items-center justify-center mt-3 px-3 md:px-0">
+    <header className="top-0 z-30 mt-3 flex w-full shrink-0 flex-col items-center justify-center px-3 md:px-0">
       <Navbar session={session} />
+      <PageLink session={session} />
     </header>
   );
 }

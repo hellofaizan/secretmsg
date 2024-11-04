@@ -37,20 +37,43 @@ enum Role {
 }
 
 model User {
-    id                String    @id @default(cuid())
+    id                String       @id @default(cuid())
     name              String?
     image             String?
-    email             String?   @unique
+    email             String?      @unique
     emailVerified     DateTime?
     emoji             String?
-    username          String?   @unique
+    username          String?      @unique
     usernameUpdatedAt DateTime?
-    about             String?   @default("New to SecretMsg App 😊")
-    joinedAt          DateTime? @default(now())
-    role              Role      @default(USER)
+    about             String?      @default("New to SecretMsg App 😊")
+    joinedAt          DateTime?    @default(now())
+    role              Role         @default(USER)
     Status            Status?
+    pageVisits        PageVisits[]
     accounts          Account[]
     messages          Message[]
+}
+
+model PageVisits {
+    id             Int      @id @default(autoincrement())
+    ip             String?
+    country        String?
+    city           String?
+    userAgent      String?
+    browser        String?
+    browserVersion String?
+    os             String?
+    osVersion      String?
+    referrer       String?
+    referrerType   String?
+    referringURL   String?
+    device         String?
+    language       String?
+    latitude       Float?
+    longitude      Float?
+    timestamp      DateTime @default(now())
+    userId         String
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Message {
@@ -62,6 +85,7 @@ model Message {
     content   String
     timestamp DateTime @default(now())
     userId    String
+    senderId  String?
     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 

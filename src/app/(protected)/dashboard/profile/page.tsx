@@ -18,7 +18,7 @@ export default async function page() {
         </div>
       }
     >
-      <div className="flex w-full justify-center px-3 pt-3 md:px-0">
+      <div className="flex w-full justify-center px-3 md:px-0">
         <div className="w-full md:w-[60%] lg:w-[45%]">
           <div className="flex flex-col gap-4 py-4">
             <PersonalData user={user} />
