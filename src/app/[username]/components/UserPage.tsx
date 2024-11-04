@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { auth } from "@/server/auth";
 import { headers } from "next/headers";
 import VisitCouter from "@/actions/visitCounter";
+import MessageForm from "./messageForm";
 
 export default async function page({ user }: any) {
   const session = await auth();
@@ -52,9 +53,19 @@ export default async function page({ user }: any) {
         </div>
       ) : null}
 
-      {/* Share Button and theme toggle */}
-
-      <div className="w-full md:w-[60%] lg:w-[45%]">{user.username}</div>
+      <div className="w-full md:w-[60%] lg:w-[45%]">
+        <div className="my-5 flex flex-col gap-5 px-2 md:px-0">
+          <div className="flex flex-col gap-2">
+            <p className="text-2xl md:text-3xl">
+              Send Message to <span className="font-semibold">{user.name}</span>
+            </p>
+            <p className="text-sm md:text-base">
+              {user.name} will never know who sent the message
+            </p>
+          </div>
+          <MessageForm user={user} />
+        </div>
+      </div>
     </div>
   );
 }

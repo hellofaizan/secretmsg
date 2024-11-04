@@ -16,3 +16,9 @@ export const updateUnameSchema = z.object({
       message: "Username must be at most 20 characters",
     }),
 });
+
+export const messageSchema = z.object({
+  message: z.string().min(3, {
+    message: "Message must be at least 3 characters",
+  }),
+});

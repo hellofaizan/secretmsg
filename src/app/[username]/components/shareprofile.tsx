@@ -42,7 +42,7 @@ export default function ShareProfile({ username }: ShareLinkProps): JSX.Element 
   const [open, setOpen] = useState(false);
   const [copy, setCopy] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const link = `https://tielinks.in/${username}`;
+  const link = `https://pouzz.xyz/${username}`;
 
   const shareSocialMedia = (profileLink: string) => {
     return (
@@ -129,7 +129,7 @@ export default function ShareProfile({ username }: ShareLinkProps): JSX.Element 
           <Button
             variant={"ghost"}
             size={"icon"}
-            className="hover:bg-transparent hover:text-gray-700 dark:hover:text-gray-300"
+            className="hover:bg-muted hover:text-gray-700 dark:hover:text-gray-300"
           >
             <IconShare size={20} />{" "}
           </Button>
@@ -147,7 +147,7 @@ export default function ShareProfile({ username }: ShareLinkProps): JSX.Element 
 
           {/* Link Input */}
           <div className="flex w-full gap-2">
-            <Input value={link || ""} readOnly className="w-full text-center" />
+            <Input value={link || ""} readOnly className="w-full text-center text-md" />
             <Button
               variant="outline"
               size={"icon"}

@@ -10,9 +10,7 @@ type Props = {
   params: { username: string };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.username;
 
   const user = await getUserByUsername(id);
@@ -107,8 +105,8 @@ export default async function App({ params }: Props) {
   return (
     <Suspense fallback={<Loader className="animate-spin" />}>
       <div className="flex w-full flex-col gap-2 px-1">
-        <header className="top-0 z-30 mt-1 flex w-full shrink-0 flex-col items-center justify-center ">
-          <Navbar />
+        <header className="top-0 z-30 mt-1 flex w-full shrink-0 flex-col items-center justify-center">
+          <Navbar username={user?.username} />
         </header>
         <UsernamePage user={user} />
       </div>
