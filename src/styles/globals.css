@@ -81,3 +81,7 @@
   background: #8888;
   border-radius: 5px;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import { Loader, User } from "lucide-react";
 import UpdateProfile from "@/actions/updateprofile";
 import { useRouter } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 const updateData = z.object({
