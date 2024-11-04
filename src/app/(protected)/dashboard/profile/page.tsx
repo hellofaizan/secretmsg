@@ -3,6 +3,9 @@ import { getUserById } from "@/server/user";
 import { Loader } from "lucide-react";
 import React, { Suspense } from "react";
 import PersonalData from "./components/personaldata";
+import ChangeUsername from "./components/changeusername";
+import LinkAccountComp from "./components/linkacc/linkaccounts";
+import DeleteAccount from "./components/deleteaccount";
 
 export default async function page() {
   const session = await auth();
@@ -19,10 +22,9 @@ export default async function page() {
         <div className="w-full md:w-[60%] lg:w-[45%]">
           <div className="flex flex-col gap-4 py-4">
             <PersonalData user={user} />
-            {/* <ChangePasswordComp user={user} />
-            <TwoFAComponent user={user} />
+            <ChangeUsername user={user} />
             <LinkAccountComp />
-            <DeleteAccount user={user} /> */}
+            <DeleteAccount user={user} />
           </div>
         </div>
       </div>

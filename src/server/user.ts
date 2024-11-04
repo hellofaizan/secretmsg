@@ -48,6 +48,19 @@ export const getUserByUsername = async (username: string) => {
   }
 };
 
+export const linkedAccounts = async (id: string) => {
+  try {
+    const accounts = await db.account.findMany({
+      where: {
+        userId: id,
+      },
+    });
+    return accounts;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const currentUser = async () => {
   const session = await auth();
 
