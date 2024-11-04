@@ -58,6 +58,13 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
       if (token.joinedAt && session.user) {
         session.user.joinedAt = token.joinedAt as string;
       }
+
+      if (session.user) {
+        session.user.name = token.name;
+        session.user.image = token.picture;
+        session.user.username = token.username as string;
+      }
+
       return session;
     },
     async jwt({ token }) {
@@ -70,7 +77,9 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
       token.role = existingUser.role;
       token.username = existingUser.username;
       token.about = existingUser.about;
-      token.tielinkJoinedAt = existingUser.joinedAt;
+      token.name = existingUser.name;
+      token.picture = existingUser.image;
+      token.joinedAt = existingUser.joinedAt;
 
       return token;
     },

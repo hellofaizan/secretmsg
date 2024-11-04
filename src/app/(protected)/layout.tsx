@@ -1,16 +1,4 @@
-import {
-  BellIcon,
-  BriefcaseIcon,
-  Calendar,
-  ChevronsRightIcon,
-  FileTextIcon,
-  HomeIcon,
-  LayoutGridIcon,
-  MenuIcon,
-  UserIcon,
-  Users,
-} from "lucide-react";
-import Navbar from "./components/Navbar";
+import Navbar from "./dashboard/components/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/server/auth";
 
