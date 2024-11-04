@@ -45,10 +45,9 @@ model User {
     emoji             String?
     username          String?      @unique
     usernameUpdatedAt DateTime?
-    about             String?      @default("New to SecretMsg App 😊")
+    about             String?      @default("New to Pouzz App")
     joinedAt          DateTime?    @default(now())
     role              Role         @default(USER)
-    Status            Status?
     pageVisits        PageVisits[]
     accounts          Account[]
     messages          Message[]
@@ -73,6 +72,7 @@ model PageVisits {
     longitude      Float?
     timestamp      DateTime @default(now())
     userId         String
+    visitorId      String?
     user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
@@ -86,14 +86,5 @@ model Message {
     timestamp DateTime @default(now())
     userId    String
     senderId  String?
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model Status {
-    id        Int      @id @default(autoincrement())
-    emoji     String?
-    status    String?
-    timestamp DateTime @default(now())
-    userId    String   @unique
     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
