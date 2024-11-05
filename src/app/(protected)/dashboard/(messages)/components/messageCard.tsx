@@ -41,12 +41,12 @@ export default function MessageCard({ message }: MessageProps) {
 
           <DeleteDialog id={Number(message.id)} />
 
-          <button
+          {/* <button
             className="flex items-center gap-1 rounded-md p-1 text-sm hover:bg-muted"
             title="Block the sender"
           >
             <BanIcon size={18} className="text-red-500" />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

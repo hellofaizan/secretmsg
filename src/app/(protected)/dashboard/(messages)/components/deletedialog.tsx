@@ -14,7 +14,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { DeleteMessage } from "@/actions/deletemessage";
-import { signOut } from "next-auth/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -47,7 +46,7 @@ export function DeleteDialog({ id }: { id: number }) {
           className="flex items-center gap-1 rounded-md p-1 text-sm hover:bg-muted"
           title="Remove this message"
         >
-          <Trash2 size={18} className="text-gray-500" />
+          <Trash2 size={18} className="text-red-500" />
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
