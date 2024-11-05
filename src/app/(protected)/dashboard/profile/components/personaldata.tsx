@@ -9,10 +9,12 @@ import { Loader, User } from "lucide-react";
 import UpdateProfile from "@/actions/updateprofile";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 const updateData = z.object({
   name: z.string(),
   email: z.string(),
+  bio: z.string(),
 });
 
 type formValues = z.infer<typeof updateData>;
@@ -27,6 +29,7 @@ export default function PersonalData(user: any) {
     defaultValues: {
       name: userdata.name,
       email: userdata.email,
+      bio: userdata.about,
     },
   });
 
@@ -97,6 +100,19 @@ export default function PersonalData(user: any) {
                 placeholder="User Id"
                 disabled
                 value={userdata.id}
+              />
+            </div>
+          </div>
+
+          <div className="flex w-full flex-col items-center gap-2 md:flex-row">
+
+            <div className="flex w-full flex-col gap-1">
+              <p className="text-sm text-muted-foreground">Account ID</p>
+              <Textarea
+                placeholder="Short and sweet bio"
+                className="w-full"
+                rows={5}
+                {...register("bio")}
               />
             </div>
           </div>

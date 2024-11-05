@@ -7,6 +7,7 @@ export default async function UpdateProfile(data: any) {
   const userid = await currentUser();
   const id = userid?.id;
   const name = data?.name;
+  const bio = data?.bio;
 
   if (!id) {
     return { error: "You must be logged in to update your profile" };
@@ -17,6 +18,7 @@ export default async function UpdateProfile(data: any) {
     where: { id: id },
     data: {
       name: name,
+      about: bio,
     },
   });
 

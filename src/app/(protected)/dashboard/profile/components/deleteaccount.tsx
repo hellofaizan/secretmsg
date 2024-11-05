@@ -13,7 +13,7 @@ export default async function DeleteAccount(user: any) {
         </p>
       </div>
       <div className="flex items-center justify-between bg-destructive/15 p-2 px-5">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs text-muted-foreground md:text-sm">
           This action is irreversible, please be sure before proceeding.
         </p>
 

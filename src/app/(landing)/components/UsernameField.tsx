@@ -40,7 +40,7 @@ const GetUsername = ({ session }: any) => {
     if (typeof window !== "undefined") {
       localStorage.setItem("username", data.username);
     }
-    router.push(`/auth?callbackUrl=/dashboard/settings?u=${data.username}`);
+    router.push(`/auth?callbackUrl=/dashboard/profile?u=${data.username}`);
   }
 
   return (

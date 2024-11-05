@@ -9,7 +9,7 @@ import { TriangleAlert, Loader } from "lucide-react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { updateUnameSchema } from "@/schemas";
 import UpdateUsername from "@/actions/updateusername";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type formValues = z.infer<typeof updateUnameSchema>;
 
@@ -19,6 +19,9 @@ export default function ChangeUsername(user: any) {
   const [loading, setLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(true);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const username = searchParams.get("u") || "";
 
   const {
     handleSubmit,
@@ -28,7 +31,7 @@ export default function ChangeUsername(user: any) {
     resolver: zodResolver(updateUnameSchema),
     mode: "onChange",
     defaultValues: {
-      username: user.user.username,
+      username: user.user.username || username,
     },
   });
 
@@ -55,6 +58,9 @@ export default function ChangeUsername(user: any) {
   };
 
   React.useEffect(() => {
+    if (username) {
+      setDisabled(false);
+    }
     if (isDirty) {
       setDisabled(false);
     }
@@ -86,7 +92,7 @@ export default function ChangeUsername(user: any) {
             disabled={disabled}
           >
             {loading && <Loader className="animate-spin" size={16} />}
-            {!loading ? "Change Username" : "Changing..."}
+            {!loading ? (username ? "Set Username" : "Change") : "Changing..."}
           </Button>
         </form>
         {errors && (

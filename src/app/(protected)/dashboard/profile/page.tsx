@@ -6,6 +6,7 @@ import PersonalData from "./components/personaldata";
 import ChangeUsername from "./components/changeusername";
 import LinkAccountComp from "./components/linkacc/linkaccounts";
 import DeleteAccount from "./components/deleteaccount";
+import Logout from "./components/logout";
 
 export default async function page() {
   const session = await auth();
@@ -24,6 +25,7 @@ export default async function page() {
             <PersonalData user={user} />
             <ChangeUsername user={user} />
             <LinkAccountComp />
+            <Logout />
             <DeleteAccount user={user} />
           </div>
         </div>
