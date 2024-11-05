@@ -11,6 +11,7 @@ export default async function page({ user }: any) {
   const session = await auth();
   const currentUser = session?.user;
   const request_headers = headers();
+  const ip = request_headers.get("x-forwarded-for") || "";
 
   if (currentUser?.id === null) {
     VisitCouter({ userId: user?.id || "", request_headers }).catch((err) => {
@@ -63,7 +64,7 @@ export default async function page({ user }: any) {
               {user.name} will never know who sent the message
             </p>
           </div>
-          <MessageForm user={user} />
+          <MessageForm user={user} ip={ip} />
         </div>
       </div>
     </div>

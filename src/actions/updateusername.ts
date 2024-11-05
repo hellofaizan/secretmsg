@@ -16,7 +16,10 @@ export default async function UpdateUsername(username: any) {
     return { error: "Username must not be empty." };
   }
 
-  // check if resently updated the username from usernameUpdatedAt from same user
+  if (username.includes(" ")) {
+    return { error: "Username cannot contain spaces." };
+  }
+
   const user = await db.user.findFirst({
     where: { id: id },
   });

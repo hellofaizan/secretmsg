@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { messageSchema } from "@/schemas";
 import { FormSuccess } from "@/components/FormSuccess";
-import { Loader, TriangleAlert } from "lucide-react";
+import { CircleAlert, Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import SendMessage from "@/actions/sendmessage";
@@ -35,22 +35,23 @@ export default function MessageForm(user: any) {
     setError(null);
     setSuccess(null);
 
-    // TODO: Call your API here
-    await SendMessage({ message: data.message, userId: user.user.id }).then(
-      (res) => {
-        try {
-          if (res && res.error) {
-            setError(res.error || "An error occurred");
-          } else {
-            setSuccess(res.success ?? "Message sent successfully");
-          }
-        } finally {
-          setLoading(false);
-          setDisabled(false);
-          reset();
+    await SendMessage({
+      message: data.message,
+      userId: user.user.id,
+      ip: user.ip,
+    }).then((res) => {
+      try {
+        if (res && res.error) {
+          setError(res.error || "An error occurred");
+        } else {
+          setSuccess(res.success ?? "Message sent successfully");
         }
-      },
-    );
+      } finally {
+        setLoading(false);
+        setDisabled(false);
+        reset();
+      }
+    });
   };
 
   React.useEffect(() => {
@@ -86,7 +87,7 @@ export default function MessageForm(user: any) {
         >
           {errors.message && (
             <div
-              className="relative w-full rounded-md border border-red-600 bg-red-200 px-3 py-2 text-gray-900 dark:border-red-700/40 dark:bg-red-600/20 dark:text-gray-300"
+              className="relative w-full rounded-md border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
               role="alert"
             >
               <span className="flex flex-col text-xs">
@@ -99,11 +100,11 @@ export default function MessageForm(user: any) {
 
       {error && (
         <div
-          className="relative w-full rounded-md border border-red-600 bg-red-200 px-3 py-2 text-gray-900 dark:border-red-700/40 dark:bg-red-600/20 dark:text-gray-300"
+          className="relative w-full rounded-md border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
           role="alert"
         >
           <span className="flex items-center gap-1 text-sm">
-            <TriangleAlert
+            <CircleAlert
               className="text-gray-900 dark:text-gray-300"
               size={14}
             />{" "}
