@@ -20,9 +20,10 @@ export default async function page() {
         <div className="w-full md:w-[60%] lg:w-[45%]">
           {messages && messages?.length > 0 ? (
             messages.map((item: any) => (
-              <MessageCard message={item} key={item} />
+              <MessageCard message={item} key={item.id} />
             ))
           ) : (
+            // Share your link
             <p>awdnbawdnawund</p>
           )}
         </div>
