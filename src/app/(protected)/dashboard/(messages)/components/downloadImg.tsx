@@ -53,10 +53,6 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
         download(dataUrl, `pouzz-${message.id}.png`);
         setOpen(false);
         if (!isDesktop) {
-          const link = document.createElement("a");
-          link.href = dataUrl;
-          link.download = `pouzz-${message.id}.png`;
-          link.click();
           // Trigger share intent
           if (navigator.share) {
             navigator
