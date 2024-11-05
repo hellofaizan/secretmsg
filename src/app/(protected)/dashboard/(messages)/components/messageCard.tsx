@@ -1,11 +1,12 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
+import { BanIcon, Trash2 } from "lucide-react";
 import React from "react";
 
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import DownloadImage from "./downloadImg";
+import { DeleteDialog } from "./deletedialog";
 
 TimeAgo.addDefaultLocale(en);
 
@@ -38,11 +39,13 @@ export default function MessageCard({ message }: MessageProps) {
         <div className="flex items-center gap-2">
           <DownloadImage message={message} key={message.id} />
 
+          <DeleteDialog id={Number(message.id)} />
+
           <button
             className="flex items-center gap-1 rounded-md p-1 text-sm hover:bg-muted"
-            title="Remove this message"
+            title="Block the sender"
           >
-            <Trash2 size={18} className="text-red-500" />
+            <BanIcon size={18} className="text-red-500" />
           </button>
         </div>
       </div>
