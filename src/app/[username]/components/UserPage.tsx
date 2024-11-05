@@ -1,5 +1,5 @@
 import React from "react";
-import { Pencil } from "lucide-react";
+import { Pencil, User2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/server/auth";
@@ -48,7 +48,7 @@ export default async function page({ user }: any) {
         <div className="fixed bottom-0 right-0 z-10 mb-4 mr-4">
           <Link href="/dashboard" target="_blank">
             <Button variant={"outline"}>
-              <Pencil size={15} className="mr-1" /> Edit Profile
+              <User2 size={15} className="mr-1" /> Dashboard
             </Button>
           </Link>
         </div>
