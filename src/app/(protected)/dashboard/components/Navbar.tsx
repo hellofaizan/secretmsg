@@ -15,7 +15,7 @@ export default function Navbar({ session }: { session: any }) {
       <Link
         href="/dashboard"
         className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary",
+          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted text-gray-700",
           path === "/dashboard" && "bg-muted",
         )}
         prefetch={false}
@@ -23,7 +23,7 @@ export default function Navbar({ session }: { session: any }) {
         <HomeIcon
           size={25}
           className={cn(
-            path === "/dashboard" ? "text-foreground" : "text-gray-500",
+            path === "/dashboard" ? "text-gray-700" : "text-gray-500",
           )}
         />
         <span className="text-lg">{path === "/dashboard" ? "Home" : ""}</span>
@@ -32,7 +32,7 @@ export default function Navbar({ session }: { session: any }) {
       <Link
         href="/dashboard/analytics"
         className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
+          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted text-gray-700",
           path === "/dashboard/analytics" && "bg-muted",
         )}
         prefetch={false}
@@ -41,7 +41,7 @@ export default function Navbar({ session }: { session: any }) {
           size={25}
           className={cn(
             path === "/dashboard/analytics"
-              ? "text-foreground"
+              ? "text-gray-700"
               : "text-gray-500",
           )}
         />
@@ -54,7 +54,7 @@ export default function Navbar({ session }: { session: any }) {
         <Link
           href="/dashboard/admin"
           className={cn(
-            "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary",
+            "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted text-gray-700",
             path === "/dashboard/admin" && "bg-muted",
           )}
           prefetch={false}
@@ -62,7 +62,7 @@ export default function Navbar({ session }: { session: any }) {
           <Lock
             size={25}
             className={cn(
-              path === "/dashboard/admin" ? "text-foreground" : "text-gray-500",
+              path === "/dashboard/admin" ? "text-gray-700" : "text-gray-500",
             )}
           />
           <span className="text-lg">
@@ -74,7 +74,7 @@ export default function Navbar({ session }: { session: any }) {
       <Link
         href="/dashboard/profile"
         className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
+          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted text-gray-700",
           path === "/dashboard/profile" && "bg-muted",
         )}
         prefetch={false}
@@ -91,7 +91,7 @@ export default function Navbar({ session }: { session: any }) {
             size={25}
             className={cn(
               path === "/dashboard/profile"
-                ? "text-foreground"
+                ? "text-gray-700"
                 : "text-gray-500",
             )}
           />

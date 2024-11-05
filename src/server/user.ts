@@ -7,9 +7,6 @@ export const getUserById = async (id: string) => {
       where: {
         id,
       },
-      include: {
-        messages: true,
-      },
     });
     return user;
   } catch (error) {
@@ -38,6 +35,19 @@ export const getUserByUsername = async (username: string) => {
       },
     });
     return user;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getMessages = async (id: string) => {
+  try {
+    const messages = await db.message.findMany({
+      where: {
+        userId: id,
+      },
+    });
+    return messages;
   } catch (error) {
     return null;
   }
