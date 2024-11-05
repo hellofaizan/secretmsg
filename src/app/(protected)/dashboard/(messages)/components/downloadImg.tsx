@@ -91,7 +91,7 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
           <div className="flex w-full flex-col gap-2">
             <div
               id={`screenshot-${message.id}`}
-              className="relative flex min-h-96 w-full items-center justify-center rounded bg-[#161616]/95"
+              className="relative flex min-h-96 w-full items-center justify-center bg-[#161616]/95"
             >
               <div className="mx-16 my-16 flex flex-col items-center justify-center">
                 <div className="flex h-full flex-col gap-1 rounded-lg bg-white px-5 py-4 text-lg">
@@ -162,7 +162,7 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
         <div className="flex w-full flex-col gap-2">
           <div
             id={`screenshot-${message.id}`}
-            className="relative flex min-h-96 w-full items-center justify-center rounded bg-[#161616]/95"
+            className="relative flex min-h-96 w-full items-center justify-center bg-[#161616]/95"
           >
             <div className="mx-16 my-16 flex flex-col items-center justify-center">
               <div className="flex h-full flex-col gap-1 rounded-lg bg-white px-5 py-4 md:text-lg">
