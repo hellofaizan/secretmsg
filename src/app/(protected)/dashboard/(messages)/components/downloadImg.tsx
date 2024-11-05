@@ -110,10 +110,12 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
                     {timeAgo.format(new Date(message.timestamp))}
                   </p>
                 </div>
-                <img
+                <Image
                   src="/assets/banner.svg"
                   alt="Banner"
-                  className="-mt-[1px] w-36 rounded-bl-lg rounded-br-lg"
+                  width={120}
+                  height={0}
+                  className="-mt-[1px] rounded-bl-lg rounded-br-lg"
                 />
               </div>
 
@@ -179,10 +181,12 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
                   {timeAgo.format(new Date(message.timestamp))}
                 </p>
               </div>
-              <img
+              <Image
                 src="/assets/banner.svg"
                 alt="Banner"
-                className="-mt-[1px] w-36 rounded-bl-lg rounded-br-lg"
+                width={120}
+                height={0}
+                className="-mt-[1px] rounded-bl-lg rounded-br-lg"
               />
             </div>
 
