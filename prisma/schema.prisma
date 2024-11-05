@@ -80,11 +80,11 @@ model Message {
     id        Int      @id @default(autoincrement())
     ip        String?
     city      String?
+    country   String?
     latitude  Float?
     longitude Float?
     content   String
     timestamp DateTime @default(now())
     userId    String
-    senderId  String?
     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -4,6 +4,7 @@ import { db } from "@/server/db";
 import { rateLimit } from "@/lib/rateLimit";
 import { isIPBlacklisted, ipBlacklistCache, blacklistIP } from "@/lib/blokedip";
 import NodeCache from "node-cache";
+import axios from "axios";
 
 const cache = new NodeCache({ stdTTL: 600 });
 const maxAttempts = 6;
@@ -17,10 +18,6 @@ export default async function SendMessage({
   userId: string;
   ip: string;
 }) {
-  if (!message) {
-    return { error: "Message must not be empty." };
-  }
-
   // - First it checks if you are blocked
   // - Then if checks if you did wrong api call 6 times,
   // - Then step 2 true; it will block you for 12 hours
@@ -103,10 +100,31 @@ export default async function SendMessage({
 
   ipBlacklistCache.del(`${ip}-attempts`);
 
+  let latitude: number | null = null;
+  let longitude: number | null = null;
+  let city: string | null = null;
+  let country: string | null = null;
+
+  try {
+    const response = await axios(`http://ip-api.com/json/${ip}`);
+    const data = response.data;
+    latitude = data.lat;
+    longitude = data.lon;
+    city = data.city;
+    country = data.country;
+  } catch (error) {
+    console.error("Error fetching IP data:", error);
+  }
+
   await db.message.create({
     data: {
       userId: userId,
       content: message,
+      ip,
+      latitude,
+      longitude,
+      city,
+      country,
     },
   });
 

@@ -1,10 +1,7 @@
 "use client";
 
-import { IconBrandX } from "@tabler/icons-react";
 import React from "react";
 import ShareProfile from "./shareprofile";
-import Link from "next/link";
-import { Image } from "lucide-react";
 
 export default function Navbar({ username }: any) {
   return (
@@ -16,14 +13,6 @@ export default function Navbar({ username }: any) {
 
       <div className="flex items-center gap-2">
         <ShareProfile username={username} />
-
-        <Link
-          href={`https://twitter.com/hubulwattan`}
-          target="_blank"
-          className="gap-2 rounded-lg p-2 hover:bg-muted"
-        >
-          <IconBrandX size={26} className="hover:scale-105" />
-        </Link>
       </div>
     </div>
   );
