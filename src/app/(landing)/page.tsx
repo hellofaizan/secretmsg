@@ -6,9 +6,14 @@ import SparklesText from "@/components/magicui/sparkles-text";
 import { ChevronsRight } from "lucide-react";
 import Link from "next/link";
 import Header from "@/components/Header";
+import { redirect } from "next/navigation";
 
 export default async function HomePage() {
   const session = await auth();
+
+  if (session) {
+    redirect("/dashboard");
+  }
   return (
     <>
       <Header session={session} />
@@ -30,8 +35,7 @@ export default async function HomePage() {
               </AnimatedShinyText>
             </Link>
             <h1 className="flex items-baseline gap-2 text-center text-3xl font-extrabold text-black md:text-4xl">
-              <SparklesText className="text-3xl md:text-4xl" text="Pouzz" />{" "}
-              App
+              <SparklesText className="text-3xl md:text-4xl" text="Pouzz" /> App
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-center text-base font-semibold">
               You have been invited to a{" "}
