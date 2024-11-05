@@ -31,7 +31,7 @@ export default async function HomePage() {
             </Link>
             <h1 className="flex items-baseline gap-2 text-center text-3xl font-extrabold text-black md:text-4xl">
               <SparklesText className="text-3xl md:text-4xl" text="Pouzz" />{" "}
-              Anonymous messages
+              App
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-center text-base font-semibold">
               You have been invited to a{" "}
