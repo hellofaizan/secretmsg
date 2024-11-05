@@ -111,7 +111,7 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
                   </p>
                 </div>
                 <Image
-                  src="/assets/banner.svg"
+                  src="/assets/banner.png"
                   alt="Banner"
                   width={120}
                   height={0}
@@ -182,7 +182,7 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
                 </p>
               </div>
               <Image
-                src="/assets/banner.svg"
+                src="/assets/banner.png"
                 alt="Banner"
                 width={120}
                 height={0}
