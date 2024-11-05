@@ -42,7 +42,7 @@ model User {
     image             String?
     email             String?      @unique
     emailVerified     DateTime?
-    emoji             String?
+    telegram          BigInt?
     username          String?      @unique
     usernameUpdatedAt DateTime?
     about             String?      @default("New to Pouzz App")

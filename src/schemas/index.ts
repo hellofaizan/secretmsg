@@ -14,7 +14,14 @@ export const updateUnameSchema = z.object({
     })
     .max(20, {
       message: "Username must be at most 20 characters",
+    })
+    .regex(/^[^\s@]+$/, {
+      message: "Username must not contain spaces or '@'",
     }),
+});
+
+export const updateTelegram = z.object({
+  username: z.string(),
 });
 
 export const messageSchema = z.object({

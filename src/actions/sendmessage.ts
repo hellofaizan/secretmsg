@@ -128,5 +128,29 @@ export default async function SendMessage({
     },
   });
 
+  if (user.telegram) {
+    const targetUsername = user.telegram.toString();
+    console.log(targetUsername);
+
+    // Send message directly to the user using their username
+    const sendResponse = await fetch(
+      `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: Number(targetUsername),
+          text: "Hey! You got a new anonymous message on Pouzz App! Do check it out",
+        }),
+      },
+    );
+
+    if (!sendResponse.ok) {
+      console.error("Failed to send message:", await sendResponse.text());
+    }
+  }
+
   return { success: "Message sent successfully!" };
 }

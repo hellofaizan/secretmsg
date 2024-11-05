@@ -7,6 +7,7 @@ import ChangeUsername from "./components/changeusername";
 import LinkAccountComp from "./components/linkacc/linkaccounts";
 import DeleteAccount from "./components/deleteaccount";
 import Logout from "./components/logout";
+import SetAlert from "./components/setalert";
 
 export default async function page() {
   const session = await auth();
@@ -24,6 +25,7 @@ export default async function page() {
           <div className="flex flex-col gap-4 py-4">
             <PersonalData user={user} />
             <ChangeUsername user={user} />
+            <SetAlert user={user}/>
             <LinkAccountComp />
             <Logout />
             <DeleteAccount user={user} />
