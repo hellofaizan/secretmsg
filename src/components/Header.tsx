@@ -4,43 +4,30 @@ import React from "react";
 import Image from "next/image";
 import ProfileComponent from "./profile";
 import { Button } from "./ui/button";
-import { IconBrandDiscord, IconCup } from "@tabler/icons-react";
+import { IconBrandDiscord, IconBrandX, IconCup } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Header({ session }: any) {
   const user = session?.user;
   return (
-    <div className="absolute z-10 md:mt-10 mt-5 flex w-full justify-center bg-transparent">
-      <div className="flex md:w-[60%] w-full mx-2">
+    <div className="absolute z-10 mt-5 flex w-full justify-center bg-transparent md:mt-10">
+      <div className="mx-2 flex w-full md:w-[60%]">
         <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link href={"/"} className="flex items-center gap-2">
             <Image
-              src="/assets/logo.png"
+              src="/assets/logo.svg"
               className="rounded-md"
               alt="logo"
               width={40}
               height={40}
             />
             <span className="text-2xl font-bold">Pouzz</span>
-          </div>
+          </Link>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="https://buymeacoffee.com/hellofaizan"
-              target="_blank"
-              passHref
-            >
+            <Link href="https://x.com/hubulwattan" target="_blank" passHref>
               <Button variant={"ghost"} size={"icon"}>
-                <IconCup size={28} className="hover:text-yellow-500" />
-              </Button>
-            </Link>
-            <Link
-              href="https://discord.com/invite/QuNdFzdKMx"
-              target="_blank"
-              passHref
-            >
-              <Button variant={"ghost"} size={"icon"}>
-                <IconBrandDiscord size={28} className="hover:text-[#5865F2]" />
+                <IconBrandX size={28} className="hover:text-black/80" />
               </Button>
             </Link>
             {user ? (

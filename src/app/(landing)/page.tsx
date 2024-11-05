@@ -17,12 +17,12 @@ export default async function HomePage() {
         <div className="flex w-full flex-col md:w-2/3">
           <div className="flex flex-col items-center justify-center p-4 md:mt-0 md:min-h-screen md:p-2">
             <Link
-              href={"https://discord.com/invite/QuNdFzdKMx"}
+              href={"https://x.com/hubulwattan"}
               target="_blank"
               className="group mb-4 max-w-fit rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
             >
               <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ Introducing Secretmsg</span>
+                <span>✨ Introducing Pouzz App</span>
                 <ChevronsRight
                   size={15}
                   className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
@@ -34,8 +34,10 @@ export default async function HomePage() {
               Anonymous messages
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-center text-base font-semibold">
-              You have been invited to a <span className="font-bold">Pouzz.xyz</span>. Please login now to
-              start receiving <span className="font-bold">anonymous</span> messages.
+              You have been invited to a{" "}
+              <span className="font-bold">Pouzz.xyz</span>. Please login now to
+              start receiving <span className="font-bold">anonymous</span>{" "}
+              messages.
             </p>
             <GetUsername session={session} />
           </div>

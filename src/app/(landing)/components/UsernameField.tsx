@@ -51,7 +51,7 @@ const GetUsername = ({ session }: any) => {
           className="mt-4 flex flex-col justify-center md:flex-row md:items-center w-full md:gap-2"
         >
           <div className="flex md:flex-row">
-            <p className="font-manrope rounded-l-[6px] bg-neutral-600 bg-opacity-30 p-4 text-neutral-800 backdrop-blur-3xl dark:text-neutral-300 md:px-4">
+            <p className="font-manrope rounded-l-[6px] bg-neutral-600 bg-opacity-15 p-4 text-neutral-800 backdrop-blur-3xl dark:text-neutral-300 md:px-4">
               pouzz.xyz/
             </p>
             <FormField
@@ -73,7 +73,7 @@ const GetUsername = ({ session }: any) => {
           </div>
           <ConfettiButton
             type="submit"
-            className="h-15 text-md font-manrope mt-4 whitespace-nowrap rounded-sm bg-transparent p-4 px-5 font-bold text-white bg-black hover:to-[#3F2B96] hover:shadow-md hover:shadow-[#FF5400]/20 md:mt-0 md:self-start"
+            className="h-15 text-md font-manrope mt-4 whitespace-nowrap rounded-sm p-4 px-5 font-bold text-white hover:to-[#3F2B96] hover:shadow-md hover:shadow-[#EA3135]/5 md:mt-0 md:self-start"
           >
             CLAIM NOW ✨
           </ConfettiButton>
