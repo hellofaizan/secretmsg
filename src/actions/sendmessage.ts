@@ -2,6 +2,8 @@
 
 import { db } from "@/server/db";
 import { rateLimit } from "@/lib/rateLimit";
+import NodeCache from "node-cache";
+const cache = new NodeCache({ stdTTL: 600 });
 
 export default async function SendMessage({
   message,
@@ -33,9 +35,17 @@ export default async function SendMessage({
     messageLowercase.includes(word),
   );
 
+  // Filterout bad words
   if (containsFilteredWord) {
     return { error: "Man, don't be this toxic towards people" };
   }
+
+  // filter out recent msg
+  const recentMessage = cache.get(ip);
+  if (recentMessage && recentMessage === message) {
+    return { error: "Duplicate message detected. You just sent same message" };
+  }
+  cache.set(ip, message);
 
   if (!userId) {
     return { error: "UserId is required." };
@@ -52,7 +62,10 @@ export default async function SendMessage({
   const isRateLimited = rateLimit(ip);
 
   if (isRateLimited) {
-    return { error: "Slow down man, You are spamming!" };
+    return {
+      error:
+        "Slow down man, You are spamming! You can just send 10 messages in an hour",
+    };
   }
 
   await db.message.create({

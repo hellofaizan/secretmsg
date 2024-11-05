@@ -2,7 +2,7 @@ const idToRequestCount = new Map<string, number>(); // keeps track of individual
 const rateLimiter = {
   windowStart: Date.now(),
   windowSize: 60 * 60 * 1000, // Milliseconds (currently 1 Hour)
-  maxRequests: 8,
+  maxRequests: 10,
 };
 
 export const rateLimit = (ip: string) => {
