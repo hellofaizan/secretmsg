@@ -5,8 +5,8 @@ export default function page() {
     return (
         <div className="flex flex-col items-center justify-center px-4 py-8 mx-auto h-screen lg:py-0">
             <a href="#" className="flex items-center mb-6 text-3xl font-semibold text-gray-900 dark:text-white">
-                <Image width={45} height={45} className="mr-2" src={"/assets/nobg_purple.png"} alt="logo" />
-                Tielinks
+                <Image width={45} height={45} className="mr-2" src={"/assets/logo.png"} alt="logo" />
+                Pouzz App
             </a>
 
             <div className="max-w-md w-full mx-auto rounded-sm md:rounded-lg p-3 md:p-8 shadow-input bg-transparent border">

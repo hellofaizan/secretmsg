@@ -54,7 +54,7 @@ export default function PageVisitGraph({ className, data }: { className?: string
               <Line
                 dataKey="views"
                 type="natural"
-                stroke="var(--color-views)"
+                stroke="#EA3135"
                 strokeWidth={2}
                 dot={{
                   fill: "var(--color-views)",

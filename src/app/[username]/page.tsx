@@ -20,23 +20,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Claim this username | Pouzz",
       description:
         "Claim this username for self | Pouzz - An anonymous messaging platform with just a link",
-      icons: [
-        {
-          url: "https://tielinks.vercel.app/favicon.ico",
-          sizes: "192x192",
-          type: "image/png",
-        },
-        {
-          url: "https://tielinks.vercel.app/favicon.ico",
-          sizes: "512x512",
-          type: "image/png",
-        },
-        {
-          url: "https://tielinks.vercel.app/favicon.ico",
-          sizes: "1024x1024",
-          type: "image/png",
-        },
-      ],
       applicationName: "Pouzz",
       creator: "HelloFaizan",
       twitter: {
@@ -56,36 +39,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: user?.name + "'s Profile | Pouzz",
+    title: user?.name + "'s Profile | on Pouzz",
     description:
       user?.about +
       " | " +
       user?.name +
       " is on Pouzz - An anonymous messaging platform with just a link",
-    icons: [
-      {
-        url: user?.image || "",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        url: user?.image || "",
-        sizes: "512x512",
-        type: "image/png",
-      },
-      {
-        url: user?.image || "",
-        sizes: "1024x1024",
-        type: "image/png",
-      },
-    ],
     applicationName: "Pouzz",
     creator: "HelloFaizan",
     twitter: {
       site: "@hubulwattan",
       creator: "@hubulwattan",
       card: "summary_large_image",
-      title: user?.name + "'s Profile | Pouzz",
+      title: user?.name + "'s Profile | on Pouzz",
       description:
         user?.about +
         " | Pouzz - An anonymous messaging platform with just a link",

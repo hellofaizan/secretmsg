@@ -131,7 +131,7 @@ export default function ShareProfile({ username }: ShareLinkProps): JSX.Element 
             size={"icon"}
             className="hover:bg-muted hover:text-gray-700 dark:hover:text-gray-300"
           >
-            <IconShare size={20} />{" "}
+            <IconShare size={26} />{" "}
           </Button>
         </DialogTrigger>
         {/* // input field for gif search */}

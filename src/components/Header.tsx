@@ -15,7 +15,7 @@ export default function Header({ session }: any) {
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <Image
-              src="/assets/logo.jpg"
+              src="/assets/logo.png"
               className="rounded-md"
               alt="logo"
               width={40}
