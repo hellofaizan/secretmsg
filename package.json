@@ -52,6 +52,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@types/downloadjs": "^1.4.6",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.10",
