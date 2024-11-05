@@ -52,15 +52,30 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
       htmlToImage.toPng(screenshotElement).then(function (dataUrl) {
         download(dataUrl, `pouzz-${message.id}.png`);
         setOpen(false);
-        if (!isDesktop) {
+        if (isDesktop) {
+          // Download the image
+          download(dataUrl, `pouzz-${message.id}.png`);
+          setOpen(false);
+        } else {
           // Trigger share intent
           if (navigator.share) {
-            navigator
-              .share({
-                title: "Share Image",
-                url: dataUrl,
+            fetch(dataUrl)
+              .then((res: any) => res.blob())
+              .then((blob: any) => {
+                navigator.share({
+                  title: "Share Image",
+                  files: [
+                    new File([blob], `pouzz-${message.id}.png`, {
+                      type: "image/png",
+                    }),
+                  ],
+                });
               })
               .catch(console.error);
+          } else {
+            // Fallback to downloading the image
+            download(dataUrl, `pouzz-${message.id}.png`);
+            setOpen(false);
           }
         }
       });
@@ -210,4 +225,8 @@ export default function DownloadImage({ message }: MessageProps): JSX.Element {
       </DrawerContent>
     </Drawer>
   );
+}
+
+function fetch(dataUrl: string): Promise<Response> {
+  return window.fetch(dataUrl); // Use the global fetch function
 }
