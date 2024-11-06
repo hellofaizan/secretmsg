@@ -21,11 +21,11 @@ export default function ShareLink({ username }: { username: string }) {
 
   const shareSocialMedia = (profileLink: string) => {
     return (
-      <div className="mb-2 overflow-y-scroll text-lg">
+      <div className="mb-2 flex flex-col gap-2 text-lg">
         <Link
           href={`https://twitter.com/intent/tweet?text=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandTwitter className="text-[#1DA1F2] hover:scale-105" />
           Share on Twitter
@@ -33,7 +33,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`https://www.facebook.com/sharer/sharer.php?u=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandFacebook className="text-[#4267B2] hover:scale-105" />
           Share on Facebook
@@ -41,7 +41,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandLinkedin className="text-[#0a66c2] hover:scale-105" />
           Share on LinkedIn
@@ -49,7 +49,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`https://api.whatsapp.com/send?text=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandWhatsapp className="text-[#25D366] hover:scale-105" />
           Share on WhatsApp
@@ -57,7 +57,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`https://t.me/share/url?url=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandTelegram className="text-[#0088cc] hover:scale-105" />
           Share on Telegram
@@ -65,7 +65,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`https://www.reddit.com/submit?url=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandReddit className="text-[#FF4500] hover:scale-105" />
           Share on Reddit
@@ -73,7 +73,7 @@ export default function ShareLink({ username }: { username: string }) {
         <Link
           href={`mailto:?body=${profileLink}`}
           target="_blank"
-          className="flex w-full items-center gap-2 rounded-lg p-2 hover:bg-muted"
+          className="flex w-full items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <IconBrandGmail className="text-[#C71610] hover:scale-105" />
           Share via Email
@@ -88,7 +88,7 @@ export default function ShareLink({ username }: { username: string }) {
               });
             }
           }}
-          className="flex w-full cursor-pointer gap-2 rounded-lg p-2 hover:bg-muted"
+          className="itens-center flex w-full cursor-pointer gap-2 rounded-lg border p-2 hover:bg-muted"
         >
           <LinkIcon className="hover:scale-105" />
           More Options
