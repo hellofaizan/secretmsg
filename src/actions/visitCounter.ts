@@ -13,7 +13,7 @@ interface Props {
 export default async function VisitCouter({ userId, request_headers }: Props) {
   const userAgent = request_headers.get("user-agent") || "";
   const ip = request_headers.get("x-forwarded-for") || "";
-  const referrer = request_headers.get("referer") || "";
+  let referrer = request_headers.get("referer") || "";
   const language = request_headers.get("accept-language") || "";
 
   if (!userId) {
@@ -58,10 +58,13 @@ export default async function VisitCouter({ userId, request_headers }: Props) {
     referrerType = "External";
     if (referrer.startsWith("https://t.co")) {
       referringURL = "https://x.com";
+      referrer = "https://x.com";
     } else if (referrer.startsWith("https://pouzz.xyz/dashboard")) {
       referringURL = "https://pouzz.xyz/dashboard";
+      referrer = "https://pouzz.xyz/dashboard";
     } else if (referrer.startsWith("https://pouzz.vercel.app/dashboard")) {
       referringURL = "https://pouzz.xyz/dashboard";
+      referrer = "https://pouzz.xyz/dashboard";
     } else {
       referringURL = referrer;
     }
