@@ -1,4 +1,5 @@
 "use client";
+"use cache";
 
 import {
   IconBrandAndroid,

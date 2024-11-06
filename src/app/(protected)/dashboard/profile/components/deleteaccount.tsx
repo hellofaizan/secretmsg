@@ -1,3 +1,5 @@
+"use cache";
+
 import React, { Suspense } from "react";
 import { Loader } from "lucide-react";
 import { DeleteDialog } from "./deletedialog";

@@ -1,4 +1,5 @@
 "use client";
+"use cache";
 
 import React, { useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";

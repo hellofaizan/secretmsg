@@ -1,3 +1,5 @@
+"use cache";
+
 import React from "react";
 import { Pencil, User2 } from "lucide-react";
 import Link from "next/link";

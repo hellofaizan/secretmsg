@@ -33,7 +33,7 @@ export default async function page() {
           <Graphs />
 
           <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
-          <ViewsByOSComp data={os} />
+            <ViewsByOSComp data={os} />
             <ViewsByCountryComp data={country} />
           </div>
 

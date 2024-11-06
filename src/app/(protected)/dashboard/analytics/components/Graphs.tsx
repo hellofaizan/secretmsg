@@ -1,3 +1,5 @@
+"use cache";
+
 import React from "react";
 import PageVisitGraph from "./pageVisitGraph";
 import { ViewsByDayThisWeak } from "@/actions/getAnalytics";

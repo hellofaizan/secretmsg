@@ -1,3 +1,5 @@
+"use cache";
+
 import React from "react";
 import { linkedAccounts } from "@/server/user";
 import { auth } from "@/server/auth";

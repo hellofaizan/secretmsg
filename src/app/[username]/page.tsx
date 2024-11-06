@@ -69,7 +69,13 @@ export default async function App({ params }: Props) {
   const user = await getUserByUsername(params.username);
 
   return (
-    <Suspense fallback={<Loader className="animate-spin" />}>
+    <Suspense
+      fallback={
+        <div className="flex min-h-dvh items-center justify-center md:min-h-screen">
+          <Loader className="animate-spin" />{" "}
+        </div>
+      }
+    >
       <div className="flex w-full flex-col gap-2 px-1">
         <header className="top-0 z-30 mt-1 flex w-full shrink-0 flex-col items-center justify-center">
           <Navbar username={user?.username} />

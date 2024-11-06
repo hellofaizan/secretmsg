@@ -1,4 +1,5 @@
 "use client";
+"use cache";
 
 import { Link2 } from "lucide-react";
 import Link from "next/link";

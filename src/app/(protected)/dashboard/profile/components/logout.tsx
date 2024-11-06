@@ -1,4 +1,5 @@
 "use client";
+"use cache";
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";

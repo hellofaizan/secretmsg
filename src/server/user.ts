@@ -46,6 +46,9 @@ export const getMessages = async (id: string) => {
       where: {
         userId: id,
       },
+      orderBy: {
+        timestamp: 'desc',
+      },
     });
     return messages;
   } catch (error) {
