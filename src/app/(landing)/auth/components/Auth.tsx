@@ -2,10 +2,7 @@
 
 import React, { useState } from "react";
 import {
-  IconBrandGithub,
   IconBrandGoogle,
-  IconBrandDiscord,
-  IconBrandFacebook,
   IconBrandX,
   IconBrandApple,
 } from "@tabler/icons-react";
@@ -73,7 +70,7 @@ export default function page() {
             </Button>
 
             {/* X */}
-            <Button
+            {/* <Button
               onClick={() => handleClick("twitter")}
               disabled={disabled}
               variant={"outline"}
@@ -86,10 +83,10 @@ export default function page() {
                 <IconBrandX className="h-6 w-6" />
               )}
               <span className="textwhite text-lg">Twitter/X</span>
-            </Button>
+            </Button> */}
 
             {/* apple */}
-            <Button
+            {/* <Button
               onClick={() => handleClick("apple")}
               disabled={disabled}
               variant={"outline"}
@@ -102,7 +99,7 @@ export default function page() {
                 <IconBrandApple className="h-6 w-6" />
               )}
               <span className="textwhite text-lg">Apple</span>
-            </Button>
+            </Button> */}
 
             {urlError && <FormError message={urlError} />}
           </div>

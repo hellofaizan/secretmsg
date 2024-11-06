@@ -24,7 +24,7 @@ export default async function page() {
           <div className="flex flex-col gap-4 py-4">
             <PersonalData user={user} />
             <ChangeUsername user={user} />
-            <LinkAccountComp />
+            {/* <LinkAccountComp /> */}
             <Logout />
             <DeleteAccount user={user} />
           </div>
