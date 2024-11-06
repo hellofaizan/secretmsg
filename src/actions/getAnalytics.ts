@@ -154,7 +154,6 @@ export async function AverageViews({ userId }: { userId: string }) {
   // Calculate the average views
   const averageViews = numberOfDays > 0 ? totalViews / numberOfDays : 0;
 
-  console.log(averageViews);
   return averageViews; // Return the average views
 }
 
