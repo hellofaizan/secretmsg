@@ -1,26 +1,23 @@
 import { db } from "./db";
 import { auth } from "./auth";
+import { UserCache } from '@/lib/usercache';
 
 export const getUserById = async (id: string) => {
   try {
+    const cachedUser = UserCache.get(id);
+    if (cachedUser) {
+      return cachedUser; // Return cached user data
+    }
+
     const user = await db.user.findUnique({
       where: {
         id,
       },
     });
-    return user;
-  } catch (error) {
-    return null;
-  }
-};
 
-export const getUserByEmail = async (email: string) => {
-  try {
-    const user = await db.user.findUnique({
-      where: {
-        email,
-      },
-    });
+    if (user) {
+      UserCache.set(id, user);
+    }
     return user;
   } catch (error) {
     return null;
@@ -34,6 +31,7 @@ export const getUserByUsername = async (username: string) => {
         username,
       },
     });
+
     return user;
   } catch (error) {
     return null;
@@ -47,7 +45,7 @@ export const getMessages = async (id: string) => {
         userId: id,
       },
       orderBy: {
-        timestamp: 'desc',
+        timestamp: "desc",
       },
     });
     return messages;

@@ -1,5 +1,6 @@
 "use server";
 
+import { clearUserCache } from "@/lib/usercache";
 import { db } from "@/server/db";
 import { getUserById } from "@/server/user";
 
@@ -8,6 +9,8 @@ export const DeleteAccAction = async (id: string) => {
   if (!user) return { error: "Session expired, Login again!" };
 
   await db.user.delete({ where: { id: user.id } });
+
+  clearUserCache(user.id);
 
   return { success: "Account deleted successfully!" };
 };

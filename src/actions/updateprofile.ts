@@ -1,5 +1,6 @@
 "use server";
 
+import { clearUserCache } from "@/lib/usercache";
 import { db } from "@/server/db";
 import { currentUser } from "@/server/user";
 
@@ -21,6 +22,7 @@ export default async function UpdateProfile(data: any) {
       about: bio,
     },
   });
+  clearUserCache(id)
 
   return { success: "Profile updated successfully!" };
 }

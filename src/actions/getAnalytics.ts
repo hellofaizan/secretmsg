@@ -79,29 +79,6 @@ export async function ViewsThisMonth({ userId }: { userId: string }) {
   return viewsThisMonth;
 }
 
-export async function ViewsPreviousMonth({ userId }: { userId: string }) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const startOfMonth = new Date(today);
-  startOfMonth.setDate(1);
-
-  const previousMonth = new Date(startOfMonth);
-  previousMonth.setMonth(startOfMonth.getMonth() - 1);
-
-  const viewsPreviousMonth = await db.pageVisits.count({
-    where: {
-      userId,
-      timestamp: {
-        gte: previousMonth,
-        lt: startOfMonth,
-      },
-    },
-  });
-
-  return viewsPreviousMonth;
-}
-
 export async function TotalViews({ userId }: { userId: string }) {
   const totalViews = await db.pageVisits.count({
     where: {
@@ -110,27 +87,6 @@ export async function TotalViews({ userId }: { userId: string }) {
   });
 
   return totalViews;
-}
-
-export async function AverageViews({ userId }: { userId: string }) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const startOfMonth = new Date(today);
-  startOfMonth.setDate(1);
-
-  const viewsThisMonth = await db.pageVisits.count({
-    where: {
-      userId,
-      timestamp: {
-        gte: startOfMonth,
-      },
-    },
-  });
-
-  const averageViews = viewsThisMonth / today.getDate();
-
-  return averageViews.toFixed(2);
 }
 
 export async function ViewsByDayThisWeak({ userId }: { userId: string }) {
@@ -188,24 +144,18 @@ export async function ViewsByDayThisWeak({ userId }: { userId: string }) {
   return completeData;
 }
 
-export async function ViewsByDevice({ userId }: { userId: string }) {
-  const viewsByDevice = await db.pageVisits.groupBy({
-    where: {
-      userId,
-    },
-    by: ["device"],
-    _count: {
-      id: true,
-    },
-    orderBy: {
-      _count: {
-        id: "desc",
-      },
-    },
-    take: 8,
-  });
+export async function AverageViews({ userId }: { userId: string }) {
+  const viewsThisWeek = await ViewsByDayThisWeak({ userId });
 
-  return viewsByDevice;
+  // Calculate the total views and the number of days
+  const totalViews = viewsThisWeek.reduce((acc, curr) => acc + curr.views, 0);
+  const numberOfDays = viewsThisWeek.length;
+
+  // Calculate the average views
+  const averageViews = numberOfDays > 0 ? totalViews / numberOfDays : 0;
+
+  console.log(averageViews);
+  return averageViews; // Return the average views
 }
 
 export async function ViewsByCountry({ userId }: { userId: string }) {
@@ -226,26 +176,6 @@ export async function ViewsByCountry({ userId }: { userId: string }) {
   });
 
   return viewsByCountry;
-}
-
-export async function ViewsByBrowser({ userId }: { userId: string }) {
-  const viewsByBrowser = await db.pageVisits.groupBy({
-    where: {
-      userId,
-    },
-    by: ["browser"],
-    _count: {
-      id: true,
-    },
-    orderBy: {
-      _count: {
-        id: "desc",
-      },
-    },
-    take: 8,
-  });
-
-  return viewsByBrowser;
 }
 
 export async function ViewsByOS({ userId }: { userId: string }) {
