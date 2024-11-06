@@ -88,9 +88,9 @@ export default function ShareLink({ username }: { username: string }) {
               });
             }
           }}
-          className="itens-center flex w-full cursor-pointer gap-2 rounded-lg border p-2 hover:bg-muted"
+          className="flex w-full cursor-pointer items-center gap-2 rounded-lg border p-2 hover:bg-muted"
         >
-          <LinkIcon className="hover:scale-105" />
+          <LinkIcon size={18} className="hover:scale-105" />
           More Options
         </div>
       </div>
