@@ -6,10 +6,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { messageSchema } from "@/schemas";
 import { FormSuccess } from "@/components/FormSuccess";
-import { CircleAlert, Loader } from "lucide-react";
+import { CircleAlert, Dices, Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import SendMessage from "@/actions/sendmessage";
+import ShuffleBtn from "./shuffle";
 
 type formValues = z.infer<typeof messageSchema>;
 
@@ -18,6 +19,7 @@ export default function MessageForm(user: any) {
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
+  const [value, setValue] = useState("");
 
   const {
     handleSubmit,
@@ -54,6 +56,14 @@ export default function MessageForm(user: any) {
     });
   };
 
+  const handleShuffle = (newValue: string) => {
+    setValue(newValue);
+    reset({ message: newValue });
+  };
+
+  if (value) {
+  }
+
   React.useEffect(() => {
     if (isDirty) {
       setDisabled(false);
@@ -66,12 +76,19 @@ export default function MessageForm(user: any) {
         onSubmit={handleSubmit(onSubmit)}
         className="mb-4 flex flex-col gap-3"
       >
-        <Textarea
-          placeholder="Write down your secret message"
-          className="w-full"
-          rows={8}
-          {...register("message")}
-        />
+        <div className="relative">
+          <Textarea
+            placeholder="Write down your secret message"
+            className="w-full"
+            rows={8}
+            {...register("message")}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+
+          <ShuffleBtn setValue={handleShuffle} />
+        </div>
+
         <Button
           type="submit"
           className="flex h-12 w-full gap-1"
