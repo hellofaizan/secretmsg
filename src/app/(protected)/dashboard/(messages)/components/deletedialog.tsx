@@ -66,7 +66,7 @@ export function DeleteDialog({ id }: { id: number }) {
             </p>
           </div>
         </DialogHeader>
-        <DialogFooter className="flex w-full items-center sm:justify-between">
+        <DialogFooter className="flex w-full flex-row justify-between">
           <DialogClose asChild>
             <Button type="button" variant="outline">
               Close
