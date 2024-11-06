@@ -73,7 +73,7 @@ export default function PersonalData(user: any) {
       <div className="flex flex-col gap-2 p-2 px-4">
         <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-muted-foreground">Name</p>
+            <p className="text-sm text-muted-foreground">Display Name</p>
             <input
               className="rounded-md border p-1 px-2 text-lg focus:border-muted-foreground focus:outline-none"
               type="text"
@@ -108,7 +108,7 @@ export default function PersonalData(user: any) {
           <div className="flex w-full flex-col items-center gap-2 md:flex-row">
 
             <div className="flex w-full flex-col gap-1">
-              <p className="text-sm text-muted-foreground">Account ID</p>
+              <p className="text-sm text-muted-foreground">Public Bio</p>
               <Textarea
                 placeholder="Short and sweet bio"
                 className="w-full"

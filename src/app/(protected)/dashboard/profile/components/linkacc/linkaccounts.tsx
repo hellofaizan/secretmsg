@@ -19,7 +19,7 @@ export default async function LinkAccountComp() {
   );
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg border">
+    <div className="flex flex-col rounded-lg border">
       <div className="flex flex-col gap-1 bg-muted/50 px-4 py-4">
         <p className="text-xl font-semibold">Link Accounts</p>
         <p className="text-sm text-muted-foreground">

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ChartColumn, HomeIcon, Lock, UserIcon } from "lucide-react";
+import { ChartColumn, HomeIcon, Lock, MessageSquare, UserIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -20,13 +20,13 @@ export default function Navbar({ session }: { session: any }) {
         )}
         prefetch={false}
       >
-        <HomeIcon
+        <MessageSquare
           size={25}
           className={cn(
             path === "/dashboard" ? "text-gray-700" : "text-gray-500",
           )}
         />
-        <span className="text-lg">{path === "/dashboard" ? "Home" : ""}</span>
+        <span className="text-lg">{path === "/dashboard" ? "Inbox" : ""}</span>
       </Link>
 
       <Link

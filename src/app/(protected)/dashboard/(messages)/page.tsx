@@ -3,6 +3,7 @@ import { getMessages } from "@/server/user";
 import { Loader } from "lucide-react";
 import React, { Suspense } from "react";
 import MessageCard from "./components/messageCard";
+import ShareLink from "./components/shareLink";
 
 export default async function page() {
   const session = await auth();
@@ -23,8 +24,7 @@ export default async function page() {
               <MessageCard message={item} key={item.id} />
             ))
           ) : (
-            // Share your link
-            <p>awdnbawdnawund</p>
+            <ShareLink username={session?.user?.username || ""} />
           )}
         </div>
       </div>
