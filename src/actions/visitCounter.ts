@@ -56,7 +56,15 @@ export default async function VisitCouter({ userId, request_headers }: Props) {
     referrerType = "Direct";
   } else {
     referrerType = "External";
-    referringURL = referrer;
+    if (referrer.startsWith("https://t.co")) {
+      referringURL = "https://x.com";
+    } else if (referrer.startsWith("https://pouzz.xyz/dashboard")) {
+      referringURL = "https://pouzz.xyz/dashboard";
+    } else if (referrer.startsWith("https://pouzz.vercel.app/dashboard")) {
+      referringURL = "https://pouzz.xyz/dashboard";
+    } else {
+      referringURL = referrer;
+    }
   }
 
   const data = {

@@ -3,15 +3,11 @@ import React, { Suspense } from "react";
 import DashboardComponent from "./components/dashoard";
 import Graphs from "./components/Graphs";
 import {
-  ViewsByBrowser,
   ViewsByCountry,
-  ViewsByDevice,
   ViewsByOS,
   ViewsByReferrer,
 } from "@/actions/getAnalytics";
-import ViewsByDeviceComp from "./components/viewsbydevice";
 import ViewsByOSComp from "./components/viewsbyos";
-import ViewsByBrowserComp from "./components/viewsbybrowser";
 import ViewsByCountryComp from "./components/viewsbycountry";
 import ViewsByReferrersComp from "./components/viewsbyreferrers";
 import { Loader } from "lucide-react";
@@ -19,10 +15,8 @@ import { Loader } from "lucide-react";
 export default async function page() {
   const session = await currentUser();
 
-  const device = await ViewsByDevice({ userId: session?.id || "" });
   const os = await ViewsByOS({ userId: session?.id || "" });
   const country = await ViewsByCountry({ userId: session?.id || "" });
-  const browser = await ViewsByBrowser({ userId: session?.id || "" });
   const referral = await ViewsByReferrer({ userId: session?.id || "" });
 
   return (
@@ -39,13 +33,8 @@ export default async function page() {
           <Graphs />
 
           <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
-            <ViewsByBrowserComp data={browser} />
+          <ViewsByOSComp data={os} />
             <ViewsByCountryComp data={country} />
-          </div>
-
-          <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
-            <ViewsByDeviceComp data={device} />
-            <ViewsByOSComp data={os} />
           </div>
 
           <div className="w-full">
