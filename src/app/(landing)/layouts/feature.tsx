@@ -55,10 +55,7 @@ export default function Features() {
     <div className="container w-full px-2 py-6 md:mt-3 md:py-10">
       <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((feature, index) => (
-          <Card
-            key={index}
-            className="rounded-lg border-none shadow-md shadow-black/10"
-          >
+          <Card key={index} className="rounded-lg shadow-sm">
             <CardContent className="space-y-3 p-4 py-8">
               <div className="h-8 w-8">{icon(feature.icon)}</div>
               <h3 className="text-xl font-bold tracking-tight">
