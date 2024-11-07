@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import Topheader from "./layouts/topheader";
 import Features from "./layouts/feature";
 import WhyPouzz from "./layouts/whypouzz";
+import FAQs from "./layouts/faqs";
 
 export default async function HomePage() {
   const session = await auth();
@@ -18,6 +19,7 @@ export default async function HomePage() {
           <Topheader />
           <Features />
           <WhyPouzz />
+          <FAQs />
         </div>
       </div>
     </>
