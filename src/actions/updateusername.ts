@@ -3,6 +3,7 @@
 
 import { currentUser } from "@/server/user";
 import { db } from "@/server/db";
+import { clearUserCache } from "@/lib/usercache";
 
 export default async function UpdateUsername(username: any) {
   const userid = await currentUser();
@@ -61,6 +62,8 @@ export default async function UpdateUsername(username: any) {
       usernameUpdatedAt: new Date(),
     },
   });
+
+  clearUserCache(id)
 
   return { success: "Username updated successfully!" };
 }

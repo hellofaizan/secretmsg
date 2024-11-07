@@ -2,9 +2,8 @@ import { auth } from "@/server/auth";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Avatars } from "./components/avatarcircles";
-import GetUsername from "./components/UsernameField";
+import GetUsername from "./components/username";
 import { SeparatorCustom } from "@/components/separator";
-import { Button } from "@/components/ui/button";
 import GoogleLogin from "./components/googlelogin";
 
 export default async function HomePage() {
@@ -13,6 +12,7 @@ export default async function HomePage() {
   if (session) {
     redirect("/dashboard");
   }
+
   return (
     <>
       <div className="relative flex min-h-dvh justify-center overflow-hidden md:min-h-dvh">

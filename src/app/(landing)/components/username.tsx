@@ -3,19 +3,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import React from "react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import React, { useState } from "react";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useRouter } from "next/navigation";
 import { ConfettiButton } from "@/components/magicui/confetti";
-import Image from "next/image";
-import { ChevronsRightIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronsRightIcon, Loader } from "lucide-react";
+import { signIn } from "next-auth/react";
 
 const usernameSchema = z.object({
   username: z
@@ -31,7 +24,7 @@ const usernameSchema = z.object({
 type UsernameValues = z.infer<typeof usernameSchema>;
 
 const GetUsername = ({ session }: any) => {
-  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm<UsernameValues>({
     resolver: zodResolver(usernameSchema),
@@ -39,19 +32,22 @@ const GetUsername = ({ session }: any) => {
   });
 
   function onSubmit(data: UsernameValues) {
-    // save username to local storage
-    if (typeof window !== "undefined") {
-      localStorage.setItem("username", data.username);
+    setLoading(true);
+    try {
+      signIn("google", {
+        callbackUrl: `/dashboard/profile?u=${data.username}#username`,
+      });
+    } catch (error) {
+      console.error(error);
     }
-    router.push(`/auth?callbackUrl=/dashboard/profile?u=${data.username}`);
   }
 
   return (
     <div className="flex w-full items-center justify-center">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-          <div className="flex w-full items-center gap-[1px] overflow-hidden rounded-[50px] border bg-white px-6 py-3">
-            <p className="font-manrope flex items-center gap-1 text-2xl text-neutral-800">
+          <div className="flex h-14 w-full items-center gap-[1px] overflow-hidden rounded-[50px] border bg-white px-4 py-2 md:px-6">
+            <p className="font-manrope flex items-center gap-1 text-2xl text-[#464646]">
               pouzz.xyz/
             </p>
 
@@ -74,10 +70,13 @@ const GetUsername = ({ session }: any) => {
             <ConfettiButton
               type="submit"
               variant={"ghost"}
-              size={"xsicon"}
-              className="flex h-11 w-16 items-center justify-center rounded-full bg-[#E73336] hover:bg-[#e74447]"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E73336] p-2 hover:bg-[#e74447]"
             >
-              <ChevronsRightIcon size={24} className="text-white" />
+              {loading ? (
+                <Loader size={26} className="animate-spin text-white" />
+              ) : (
+                <ChevronsRightIcon size={26} className="text-white" />
+              )}
             </ConfettiButton>
           </div>
         </form>

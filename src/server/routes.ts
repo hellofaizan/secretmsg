@@ -4,49 +4,44 @@
  * @type {string[]}
  */
 export const publicRoutes: string[] = [
-    '/',
-    '/about',
-    '/contact',
-    '/explore',
-    '/:path*',
-]
+  "/",
+  "/about",
+  "/contact",
+  "/explore",
+  "/:path*",
+];
 
 /**
  * An array of routes that are used for authentication
  * These routes are used for login and will redirect logged in user to /dashboard
  * @type {string[]}
  */
-export const authRoutes: string[] = [
-    '/auth',
-    '/auth/error',
-]
+export const authRoutes: string[] = ["/auth", "/", "/auth/error"];
 
 /**
-* Rout prefix for the api auth routes
-* @type {string}
-*/
-export const apiAuthPrefix: string = '/api/auth'
+ * Rout prefix for the api auth routes
+ * @type {string}
+ */
+export const apiAuthPrefix: string = "/api/auth";
 
 /**
  * An array of routes that are protected and require authentication
  * @type {string[]}
  */
 export const protectedRoutes: string[] = [
-    '/dashboard',
-    '/dashboard/analytics',
-    '/dashboard/profile',
-]
+  "/dashboard",
+  "/dashboard/analytics",
+  "/dashboard/profile",
+];
 
 /**
  * An array of routes that are protected and require authentication
  * @type {string[]}
  */
-export const adminRoutes: string[] = [
-    '/admin',
-]
+export const adminRoutes: string[] = ["/dashboard/admin"];
 
 /**
  * The default route to redirect to after login
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT = '/dashboard'
+export const DEFAULT_LOGIN_REDIRECT = "/dashboard";

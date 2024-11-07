@@ -1,18 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  IconBrandGoogle,
-  IconBrandX,
-  IconBrandApple,
-} from "@tabler/icons-react";
+import { IconBrandGoogle } from "@tabler/icons-react";
 import { signIn } from "next-auth/react";
 import { DEFAULT_LOGIN_REDIRECT } from "@/server/routes";
 import { useSearchParams } from "next/navigation";
 import { FormError } from "./FormError";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import { Loader } from "lucide-react";
+import { ChevronsLeftIcon, Loader } from "lucide-react";
+import Link from "next/link";
 
 export default function page() {
   const searchParams = useSearchParams();
@@ -40,9 +36,13 @@ export default function page() {
 
   return (
     <>
-      <Header />
       <div className="mx-auto flex h-screen flex-col items-center justify-center px-4 py-8 lg:py-0">
         <div className="mx-auto w-full max-w-md rounded-sm bg-transparent p-3 shadow-input md:rounded-lg md:p-8">
+          <Link href={"/"}>
+            <Button variant={"outline"} size={"icon"} className="mb-20">
+              <ChevronsLeftIcon />
+            </Button>
+          </Link>
           <h2 className="text-center text-3xl font-bold">
             Welcome to Pouzz.xyz
           </h2>

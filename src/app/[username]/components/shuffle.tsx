@@ -24,7 +24,7 @@ export default function ShuffleBtn({ setValue }: { setValue: any }) {
     >
       <motion.div
         animate={
-          isAnimating ? { scale: 1.08, rotate: 180 } : { scale: 1, rotate: 0 }
+          isAnimating ? { scale: 1.08, rotate: 180 } : { scale: 1, rotate: 1 }
         }
         transition={{ type: "spring", stiffness: 350 }}
       >
