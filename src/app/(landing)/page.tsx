@@ -18,7 +18,7 @@ export default async function HomePage() {
   return (
     <>
       <div className="relative flex min-h-dvh justify-center overflow-hidden md:min-h-dvh">
-        <div className="flex w-full flex-col pt-[60px] md:w-[95%] md:pt-[150px] lg:w-[70%]">
+        <div className="flex w-full flex-col pt-[100px] md:w-[95%] md:pt-[150px] lg:w-[70%]">
           <Topheader />
           <Features />
         </div>
