@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/form";
 import { useRouter } from "next/navigation";
 import { ConfettiButton } from "@/components/magicui/confetti";
+import Image from "next/image";
+import { ChevronsRightIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const usernameSchema = z.object({
   username: z
@@ -44,16 +47,14 @@ const GetUsername = ({ session }: any) => {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex w-full items-center justify-center">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="mt-4 flex flex-col justify-center md:flex-row md:items-center w-full md:gap-2"
-        >
-          <div className="flex md:flex-row">
-            <p className="font-manrope rounded-l-[6px] bg-neutral-600 bg-opacity-15 p-4 text-neutral-800 backdrop-blur-3xl dark:text-neutral-300 md:px-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+          <div className="flex w-full items-center gap-[1px] overflow-hidden rounded-[50px] border bg-white px-6 py-3">
+            <p className="font-manrope flex items-center gap-1 text-2xl text-neutral-800">
               pouzz.xyz/
             </p>
+
             <FormField
               control={form.control}
               name="username"
@@ -61,22 +62,24 @@ const GetUsername = ({ session }: any) => {
                 <FormItem className="w-full">
                   <FormControl>
                     <input
-                      className="w-full rounded-r-[6px] border p-4 lowercase focus-visible:outline-none"
+                      className="w-full text-2xl lowercase focus-visible:outline-none md:w-36 lg:w-full"
                       placeholder={"username"}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="relative md:absolute" />
                 </FormItem>
               )}
             />
+
+            <ConfettiButton
+              type="submit"
+              variant={"ghost"}
+              size={"xsicon"}
+              className="flex h-11 w-16 items-center justify-center rounded-full bg-[#E73336] hover:bg-[#e74447]"
+            >
+              <ChevronsRightIcon size={24} className="text-white" />
+            </ConfettiButton>
           </div>
-          <ConfettiButton
-            type="submit"
-            className="h-15 text-md font-manrope mt-4 whitespace-nowrap rounded-sm p-4 px-5 font-bold text-white hover:to-[#3F2B96] hover:shadow-md hover:shadow-[#EA3135]/5 md:mt-0 md:self-start"
-          >
-            CLAIM NOW ✨
-          </ConfettiButton>
         </form>
       </Form>
     </div>

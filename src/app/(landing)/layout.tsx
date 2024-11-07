@@ -7,7 +7,10 @@ export default function LandingLayout({
   }) {
     return (
       <div>
+        <div className='absolute -z-20 w-full h-full opacity-40' style={{ background: `url(/assets/bg.svg) no-repeat`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className='px-4'>
         {children}
+        </div>
       </div>
     )
   }
