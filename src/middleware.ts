@@ -33,9 +33,9 @@ export default auth((req):any => {
         if (nextUrl.search) {
             callbackUrl += nextUrl.search;
         }
-        const encodedUrl = encodeURIComponent(callbackUrl);
+        // const encodedUrl = encodeURIComponent(callbackUrl);
         return Response.redirect(new URL(
-            `/auth?callbackUrl=${encodedUrl}`, 
+            `/`, 
             nextUrl
         ));
     }
