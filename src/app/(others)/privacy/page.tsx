@@ -23,10 +23,10 @@ export default function page() {
             </span>
           </div>
           <span>
-            At [App Name], we are committed to protecting the privacy of our
-            users and customers. This Privacy Policy explains how we collect,
-            use, and disclose personal information when you use our website and
-            our chrome extension.{" "}
+            At Pouzz, we are committed to protecting the privacy of our users
+            and customers. This Privacy Policy explains how we collect, use, and
+            disclose personal information when you use our website and our
+            chrome extension.{" "}
           </span>
 
           <span className="mb-4 text-2xl font-bold md:text-3xl">
