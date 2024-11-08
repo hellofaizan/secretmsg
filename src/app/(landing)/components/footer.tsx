@@ -33,7 +33,8 @@ export default function Footer() {
       </div>
 
       <div className="hidden items-center gap-2 md:flex">
-        <Link href={"https://x.com/hubulwattan"} target="_blank">
+        <Link href={"https://x.com/hubulwattan"} target="_blank" 
+              data-umami-event={`footer-x`}>
           <IconBrandX size={25} className="text-black" />
         </Link>
       </div>

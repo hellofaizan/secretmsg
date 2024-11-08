@@ -96,6 +96,7 @@ export default function MessageForm(user: any) {
           disabled={disabled}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.1 }}
+          data-umami-event={`anonymous-confessions`}
         >
           {loading && <Loader className="animate-spin" size={16} />}
           {!loading ? "Send Anonymously" : "Sending..."}

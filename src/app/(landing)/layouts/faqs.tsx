@@ -52,6 +52,7 @@ export default function FAQs() {
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-transparent bg-[#E73336] px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
                 role="button"
+                data-umami-event={`faq-x`}
               >
                 <IconBrandX />
                 Contact Us

@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title:
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pouzz App | Anonymous Messaging Platform",
     description:
-      "Experience Kashmir’s own platform for anonymous messages. Join the community today!",
+      "Experience Kashmir's own platform for anonymous messages. Join the community today!",
     images: ["https://pouzz.xyz/twitter-image.jpg"],
   },
   applicationName: "Pouzz App",
@@ -80,6 +81,12 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster />
+
+        <Script
+          defer
+          src="https://stats.hellofaizan.tech/script.js"
+          data-website-id="c5ebf620-7099-4a42-a39e-c352093eaf7d"
+        ></Script>
       </body>
     </html>
   );
