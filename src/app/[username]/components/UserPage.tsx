@@ -11,6 +11,7 @@ import MessageForm from "./messageForm";
 import ShareProfile from "./shareprofile";
 import Image from "next/image";
 import Footer from "@/app/(landing)/components/footer";
+import { ConfettiButton } from "@/components/magicui/confetti";
 
 export default async function page({ user, username }: any) {
   const session = await auth();
@@ -35,7 +36,7 @@ export default async function page({ user, username }: any) {
   if (!user) {
     return (
       <div className="flex min-h-[80svh] items-center justify-center md:min-h-[90vh]">
-        <div className="relative flex h-full min-h-[91svh] md:min-h-[90vh] w-full flex-col items-center justify-between overflow-hidden md:w-[60%] lg:w-[45%]">
+        <div className="relative flex h-full min-h-[91svh] w-full flex-col items-center justify-between overflow-hidden md:min-h-[90vh] md:w-[60%] lg:w-[45%]">
           <div />
           <div className="flex flex-col items-center justify-center gap-4">
             <Image
@@ -58,13 +59,13 @@ export default async function page({ user, username }: any) {
             </p>
 
             <Link href={"/#username"}>
-              <Button
+              <ConfettiButton
                 variant={"default"}
                 size={"xxl"}
-                className="mt-4 flex items-center gap-1 rounded-xl text-xl"
+                className="mt-4 flex items-center gap-1 rounded-xl bg-[#E73336] p-3 px-8 text-xl text-white hover:bg-[#e74447]"
               >
                 Claim Username
-              </Button>
+              </ConfettiButton>
             </Link>
           </div>
 
@@ -87,19 +88,7 @@ export default async function page({ user, username }: any) {
       ) : null}
 
       <div className="w-full md:w-[60%] lg:w-[45%]">
-        <div className="my-5 flex flex-col gap-5 px-2 md:px-0">
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-1 text-xl md:text-3xl">
-              Send Message to{" "}
-              <span className="flex flex-row items-center gap-1 font-semibold">
-                {user.name}
-                <ShareProfile username={user?.username} />
-              </span>
-            </div>
-            <p className="text-sm md:text-base">
-              {user.name} will never know who sent the message
-            </p>
-          </div>
+        <div className="my-5 pt-8 flex flex-col gap-3 px-2 md:px-0">
           <MessageForm user={user} ip={ip} />
         </div>
       </div>

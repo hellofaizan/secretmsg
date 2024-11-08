@@ -28,7 +28,7 @@ export default function ShuffleBtn({ setValue }: { setValue: any }) {
         }
         transition={{ type: "spring", stiffness: 350 }}
       >
-        <Dices className="text-[#e73336] disabled:text-gray-100 dark:text-[#a754fe] dark:disabled:text-zinc-800" />
+        <Dices className="text-[#e73336] disabled:text-gray-100" />
       </motion.div>
     </button>
   );

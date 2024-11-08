@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Textarea } from "@/components/ui/textarea";
 import SendMessage from "@/actions/sendmessage";
 import ShuffleBtn from "./shuffle";
+import ShareProfile from "./shareprofile";
 
 type formValues = z.infer<typeof messageSchema>;
 
@@ -75,24 +76,38 @@ export default function MessageForm(user: any) {
     <div className="flex w-full flex-col pb-2">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mb-4 flex flex-col gap-3"
+        className="mb-1 flex flex-col gap-3 mx-[2px]"
       >
-        <div className="relative">
-          <Textarea
-            placeholder="Type your anonymous confession"
-            className="w-full rounded-xl"
-            rows={8}
-            {...register("message")}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
+        <div className="flex w-full flex-col overflow-hidden rounded-2xl border">
+          <div className="flex items-center justify-between border-b px-4 py-2">
+            <div className="text-sm font-mono">
+              Sending Message to{" "}
+              <span className="text-base font-bold">{user.user.name}</span>
+            </div>
+            <ShareProfile username={user?.username} />
+          </div>
+          <div className="relative">
+            <Textarea
+              placeholder="Type your anonymous confession..."
+              className="w-full"
+              rows={8}
+              {...register("message")}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
 
-          <ShuffleBtn setValue={handleShuffle} />
+            <ShuffleBtn setValue={handleShuffle} />
+          </div>
         </div>
+
+        <p className="-mt-3 text-xs italic md:text-sm">
+          <span className="text-base text-red-500">*</span>
+          {user.user.name} will never know who sent the message
+        </p>
 
         <motion.button
           type="submit"
-          className="flex h-12 w-full items-center justify-center gap-1 rounded-xl bg-[#E73336] text-white disabled:opacity-50"
+          className="flex h-12 w-full items-center justify-center gap-1 rounded-2xl bg-[#e73336]/90 text-white hover:bg-[#e73336] disabled:opacity-50"
           disabled={disabled}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.1 }}
@@ -108,7 +123,7 @@ export default function MessageForm(user: any) {
         >
           {errors.message && (
             <div
-              className="relative w-full rounded-md border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
+              className="relative w-full rounded-2xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
               role="alert"
             >
               <span className="flex flex-col text-xs">
@@ -121,7 +136,7 @@ export default function MessageForm(user: any) {
 
       {error && (
         <div
-          className="relative w-full rounded-md border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
+          className="relative w-full rounded-2xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
           role="alert"
         >
           <span className="flex items-center gap-1 text-sm">
