@@ -5,6 +5,7 @@ import { type Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pouzz.xyz"),
   title:
     "Pouzz App | Anonymous Messaging Platform | Social Network for Anonymous Messages",
   description:
@@ -34,10 +35,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://pouzz.xyz/og-image.jpg",
-        width: 800,
-        height: 600,
-        alt: "Pouzz | Anonymous Messaging Platform",
+        url: "https://pouzz.xyz/assets/ogimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Pouzz - Connect Anonymously, Share Freely.",
       },
     ],
   },
@@ -46,7 +47,10 @@ export const metadata: Metadata = {
     title: "Pouzz App | Anonymous Messaging Platform",
     description:
       "Experience Kashmir's own platform for anonymous messages. Join the community today!",
-    images: ["https://pouzz.xyz/twitter-image.jpg"],
+    images: ["https://pouzz.xyz/assets/ogimage.png"],
+    creator: "@hubulwattan",
+    siteId: "1821562943789785088",
+    creatorId: "1821562943789785088",
   },
   applicationName: "Pouzz App",
   authors: [{ name: "Mohammad Faizan" }],
