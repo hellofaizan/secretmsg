@@ -45,7 +45,7 @@ model User {
     emoji             String?
     username          String?      @unique
     usernameUpdatedAt DateTime?
-    about             String?      @default("New to Pouzz App")
+    about             String?      @default("New to Pouzz App, send me ananymous confessions!")
     joinedAt          DateTime?    @default(now())
     role              Role         @default(USER)
     pageVisits        PageVisits[]

@@ -8,6 +8,7 @@ import { auth } from "@/server/auth";
 import { headers } from "next/headers";
 import VisitCouter from "@/actions/visitCounter";
 import MessageForm from "./messageForm";
+import ShareProfile from "./shareprofile";
 
 export default async function page({ user }: any) {
   const session = await auth();
@@ -59,9 +60,13 @@ export default async function page({ user }: any) {
       <div className="w-full md:w-[60%] lg:w-[45%]">
         <div className="my-5 flex flex-col gap-5 px-2 md:px-0">
           <div className="flex flex-col gap-2">
-            <p className="text-2xl md:text-3xl">
-              Send Message to <span className="font-semibold">{user.name}</span>
-            </p>
+            <div className="text-2xl md:text-3xl flex items-center gap-1">
+              Send Message to{" "}
+              <span className="flex flex-row items-center gap-1 font-semibold">
+                {user.name}
+                <ShareProfile username={user?.username} />
+              </span>
+            </div>
             <p className="text-sm md:text-base">
               {user.name} will never know who sent the message
             </p>

@@ -78,7 +78,7 @@ export default function MessageForm(user: any) {
       >
         <div className="relative">
           <Textarea
-            placeholder="Write down your secret message"
+            placeholder="Type your anonymous confession"
             className="w-full"
             rows={8}
             {...register("message")}
@@ -95,7 +95,7 @@ export default function MessageForm(user: any) {
           disabled={disabled}
         >
           {loading && <Loader className="animate-spin" size={16} />}
-          {!loading ? "Send Message" : "Sending..."}
+          {!loading ? "Send Anonymously" : "Sending..."}
         </Button>
       </form>
       {errors && (
