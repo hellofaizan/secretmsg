@@ -79,7 +79,7 @@ export default function MessageForm(user: any) {
         className="mb-1 flex flex-col gap-3 mx-[2px]"
       >
         <div className="flex w-full flex-col overflow-hidden rounded-2xl border">
-          <div className="flex items-center justify-between border-b px-4 py-[10px]">
+          <div className="flex items-center justify-between border-b px-4 py-[8px]">
             <div className="text-sm font-mono font-medium">
               Sending Message to{" "}
               <span className="text-base font-bold">{user.user.name}</span>
