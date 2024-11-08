@@ -16,10 +16,10 @@ export default function Footer() {
 
       <div className="flex flex-col items-center justify-center gap-1 text-sm">
         <div className="flex items-center gap-3">
-          <Link href={"/"} target="_blank">
+          <Link href={"/terms"} target="_blank">
             Terms of Service
           </Link>
-          <Link href={"/"} target="_blank">
+          <Link href={"/privacy"} target="_blank">
             Privacy policy
           </Link>
           <Link href={"/"} target="_blank">
@@ -33,8 +33,11 @@ export default function Footer() {
       </div>
 
       <div className="hidden items-center gap-2 md:flex">
-        <Link href={"https://x.com/hubulwattan"} target="_blank" 
-              data-umami-event={`footer-x`}>
+        <Link
+          href={"https://x.com/hubulwattan"}
+          target="_blank"
+          data-umami-event={`footer-x`}
+        >
           <IconBrandX size={25} className="text-black" />
         </Link>
       </div>
