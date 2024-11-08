@@ -90,7 +90,7 @@ export default async function page({ user, username }: any) {
         <div className="my-5 flex flex-col gap-3 px-2 pt-8 md:px-0">
           <MessageForm user={user} ip={ip} />
 
-          <div className="mt-24 flex w-full items-center justify-center md:mt-32">
+          <div className="mt-20 flex w-full items-center justify-center md:mt-28">
             <div className="flex w-max flex-col items-center justify-center gap-2">
               <div className="relative flex items-center rounded-xl bg-muted p-6 py-3 text-2xl text-[#727272] md:text-4xl">
                 pouzz.xyz/

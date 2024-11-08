@@ -173,7 +173,7 @@ export default function ShareProfile({ username }: ShareLinkProps): JSX.Element 
 
           {/* Report Link */}
           <Link
-            href={`/report?u=${username}`}
+            href={`https://x.com/intent/post?text=%40hubulwattan%20Reporting%20this%20user%20https%3A%2F%2Fpouzz.xyz%2F${username}.%20Please%20have%20a%20look.`}
             target="_blank"
             className="flex items-center justify-between rounded-lg p-2 hover:bg-muted"
           >

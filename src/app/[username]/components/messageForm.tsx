@@ -76,15 +76,15 @@ export default function MessageForm(user: any) {
     <div className="flex w-full flex-col pb-2">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mb-1 flex flex-col gap-3 mx-[2px]"
+        className="mx-[2px] mb-1 flex flex-col gap-3"
       >
         <div className="flex w-full flex-col overflow-hidden rounded-2xl border">
           <div className="flex items-center justify-between border-b px-4 py-[8px]">
-            <div className="text-sm font-mono font-medium">
+            <div className="font-mono text-sm font-medium">
               Sending Message to{" "}
               <span className="text-base font-bold">{user.user.name}</span>
             </div>
-            <ShareProfile username={user?.username} />
+            <ShareProfile username={user.user.username} />
           </div>
           <div className="relative">
             <Textarea
@@ -102,7 +102,8 @@ export default function MessageForm(user: any) {
 
         <p className="-mt-3 text-xs italic md:text-sm">
           <span className="text-base text-red-500">*</span>
-          {user.user.name} will never know who sent the message <span className="not-italic">🔒</span>
+          {user.user.name} will never know who sent the message{" "}
+          <span className="not-italic">🔒</span>
         </p>
 
         <motion.button
@@ -123,7 +124,7 @@ export default function MessageForm(user: any) {
         >
           {errors.message && (
             <div
-              className="relative w-full rounded-2xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
+              className="relative w-full rounded-xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
               role="alert"
             >
               <span className="flex flex-col text-xs">
@@ -136,7 +137,7 @@ export default function MessageForm(user: any) {
 
       {error && (
         <div
-          className="relative w-full rounded-2xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
+          className="relative w-full rounded-xl border border-red-600/45 bg-red-100/45 px-3 py-2 text-gray-900"
           role="alert"
         >
           <span className="flex items-center gap-1 text-sm">
