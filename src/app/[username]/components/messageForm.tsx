@@ -79,8 +79,8 @@ export default function MessageForm(user: any) {
         className="mb-1 flex flex-col gap-3 mx-[2px]"
       >
         <div className="flex w-full flex-col overflow-hidden rounded-2xl border">
-          <div className="flex items-center justify-between border-b px-4 py-2">
-            <div className="text-sm font-mono">
+          <div className="flex items-center justify-between border-b px-4 py-[10px]">
+            <div className="text-sm font-mono font-medium">
               Sending Message to{" "}
               <span className="text-base font-bold">{user.user.name}</span>
             </div>
@@ -102,7 +102,7 @@ export default function MessageForm(user: any) {
 
         <p className="-mt-3 text-xs italic md:text-sm">
           <span className="text-base text-red-500">*</span>
-          {user.user.name} will never know who sent the message
+          {user.user.name} will never know who sent the message <span className="not-italic">🔒</span>
         </p>
 
         <motion.button

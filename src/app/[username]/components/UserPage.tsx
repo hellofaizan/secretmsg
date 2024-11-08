@@ -8,7 +8,6 @@ import { auth } from "@/server/auth";
 import { headers } from "next/headers";
 import VisitCouter from "@/actions/visitCounter";
 import MessageForm from "./messageForm";
-import ShareProfile from "./shareprofile";
 import Image from "next/image";
 import Footer from "@/app/(landing)/components/footer";
 import { ConfettiButton } from "@/components/magicui/confetti";
@@ -88,8 +87,34 @@ export default async function page({ user, username }: any) {
       ) : null}
 
       <div className="w-full md:w-[60%] lg:w-[45%]">
-        <div className="my-5 pt-8 flex flex-col gap-3 px-2 md:px-0">
+        <div className="my-5 flex flex-col gap-3 px-2 pt-8 md:px-0">
           <MessageForm user={user} ip={ip} />
+
+          <div className="mt-28 md:mt-32 flex w-full items-center justify-center">
+            <div className="flex w-max flex-col items-center justify-center gap-2">
+              <div className="relative flex items-center rounded-xl bg-muted p-6 py-3 text-2xl text-[#727272] md:text-4xl">
+                pouzz.xyz/
+                <p className="text-[#0e0e0e]">yourname</p>
+                <p className="absolute -right-4 -top-2 flex rotate-6 rounded-lg border border-green-500 bg-[#4fdd77] px-2 py-[2px] text-sm text-white">
+                  It could be you!
+                </p>
+              </div>
+
+              <p className="text-sm">
+                Pouzz - Connect Anonymously, Share Freely.
+              </p>
+
+              <Link href={"/"}>
+                <ConfettiButton
+                  variant={"default"}
+                  size={"xxl"}
+                  className="mt-4 flex items-center gap-1 rounded-xl bg-[#E73336] p-3 px-8 text-xl text-white hover:bg-[#e74447]"
+                >
+                  Join Pouzz Now
+                </ConfettiButton>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
