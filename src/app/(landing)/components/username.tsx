@@ -35,7 +35,7 @@ const GetUsername = ({ session }: any) => {
     setLoading(true);
     try {
       signIn("google", {
-        callbackUrl: `/dashboard/profile?u=${data.username}#username`,
+        callbackUrl: `/dashboard/profile?handle=${data.username}#username`,
       });
     } catch (error) {
       console.error(error);
@@ -58,6 +58,7 @@ const GetUsername = ({ session }: any) => {
                 <FormItem className="w-full">
                   <FormControl>
                     <input
+                      id="username"
                       className="w-full text-2xl lowercase focus-visible:outline-none md:w-36 lg:w-full"
                       placeholder={"username"}
                       {...field}

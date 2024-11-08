@@ -80,7 +80,7 @@ export default async function App({ params }: Props) {
         <header className="top-0 z-30 mt-1 flex w-full shrink-0 flex-col items-center justify-center">
           <Navbar username={user?.username} />
         </header>
-        <UsernamePage user={user} />
+        <UsernamePage user={user} username={params.username} />
       </div>
     </Suspense>
   );

@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { messageSchema } from "@/schemas";
 import { FormSuccess } from "@/components/FormSuccess";
-import { CircleAlert, Dices, Loader } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CircleAlert, Loader } from "lucide-react";
+import { motion } from "framer-motion";
 import { Textarea } from "@/components/ui/textarea";
 import SendMessage from "@/actions/sendmessage";
 import ShuffleBtn from "./shuffle";
@@ -52,6 +52,7 @@ export default function MessageForm(user: any) {
         setLoading(false);
         setDisabled(false);
         reset();
+        setValue("");
       }
     });
   };
@@ -79,7 +80,7 @@ export default function MessageForm(user: any) {
         <div className="relative">
           <Textarea
             placeholder="Type your anonymous confession"
-            className="w-full"
+            className="w-full rounded-xl"
             rows={8}
             {...register("message")}
             value={value}
@@ -89,14 +90,16 @@ export default function MessageForm(user: any) {
           <ShuffleBtn setValue={handleShuffle} />
         </div>
 
-        <Button
+        <motion.button
           type="submit"
-          className="flex h-12 w-full gap-1"
+          className="flex h-12 w-full items-center justify-center gap-1 rounded-xl bg-[#E73336] text-white disabled:opacity-50"
           disabled={disabled}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.1 }}
         >
           {loading && <Loader className="animate-spin" size={16} />}
           {!loading ? "Send Anonymously" : "Sending..."}
-        </Button>
+        </motion.button>
       </form>
       {errors && (
         <div

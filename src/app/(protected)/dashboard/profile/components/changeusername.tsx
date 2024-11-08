@@ -22,7 +22,7 @@ export default function ChangeUsername(user: any) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const username = searchParams.get("u") || "";
+  const username = searchParams.get("handle") || "";
 
   const {
     handleSubmit,

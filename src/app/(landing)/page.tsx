@@ -4,6 +4,7 @@ import Topheader from "./layouts/topheader";
 import Features from "./layouts/feature";
 import WhyPouzz from "./layouts/whypouzz";
 import FAQs from "./layouts/faqs";
+import Footer from "./components/footer";
 
 export default async function HomePage() {
   const session = await auth();
@@ -20,6 +21,8 @@ export default async function HomePage() {
           <Features />
           <WhyPouzz />
           <FAQs />
+
+          <Footer />
         </div>
       </div>
     </>

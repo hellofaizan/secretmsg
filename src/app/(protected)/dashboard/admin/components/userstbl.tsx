@@ -47,7 +47,7 @@ export function UsersTable({ users }: any) {
           <Table className="bg-white">
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
+                <TableHead className="min-w-44">Name</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Username</TableHead>
                 <TableHead className="min-w-32 text-right">Time</TableHead>

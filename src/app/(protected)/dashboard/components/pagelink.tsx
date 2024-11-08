@@ -15,7 +15,7 @@ export default function PageLink({ session }: { session: any }) {
     <div className="mt-3 w-full md:w-[60%] lg:w-[45%]">
       {user?.username ? (
         <div
-          className="flex items-center justify-between rounded-lg bg-green-100/50 p-3 text-sm text-green-600"
+          className="flex items-center justify-between rounded border-s-4 border-green-500 bg-green-50 p-2"
           role="alert"
         >
           <div>
@@ -42,17 +42,18 @@ export default function PageLink({ session }: { session: any }) {
         </div>
       ) : (
         <div
-          className="flex items-center justify-between rounded-lg bg-yellow-100/50 p-3 text-sm text-yellow-600"
           role="alert"
+          className="flex items-center justify-between rounded border-s-4 border-red-500 bg-red-50 p-2"
         >
-          <div>
+          <p className="text-sm text-red-700">
             ⚠️ Your page is inactive, set a unique Username
-          </div>
+          </p>
+
           <Button
-            variant="outline"
-            className="gap-2 bg-yellow-50/50 hover:bg-yellow-500/20"
+            variant="destructive"
+            className="gap-2"
             onClick={() => {
-              router.push("/dashboard/profile#username")
+              router.push("/dashboard/profile#username");
             }}
           >
             Choose
