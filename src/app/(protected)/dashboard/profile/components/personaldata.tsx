@@ -111,7 +111,7 @@ export default function PersonalData(user: any) {
               <p className="text-sm text-muted-foreground">Public Bio</p>
               <Textarea
                 placeholder="Short and sweet bio"
-                className="w-full"
+                className="w-full border"
                 rows={5}
                 {...register("bio")}
               />

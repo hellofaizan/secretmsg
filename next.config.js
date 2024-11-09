@@ -26,6 +26,10 @@ const config = {
             protocol: "https",
             hostname: "icons.duckduckgo.com",
           },
+          {
+            protocol: "https",
+            hostname: "avatars.githubusercontent.com",
+          },
         ],
       },
 };
