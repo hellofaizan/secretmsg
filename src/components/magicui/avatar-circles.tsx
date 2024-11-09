@@ -3,6 +3,7 @@
 import React from "react";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface AvatarCirclesProps {
   className?: string;
@@ -21,7 +22,7 @@ const AvatarCircles = ({
         className={cn("z-10 flex -space-x-3 rtl:space-x-reverse", className)}
       >
         {avatarUrls.map((url, index) => (
-          <img
+          <Image
             key={index}
             className="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800"
             src={url}
@@ -30,7 +31,7 @@ const AvatarCircles = ({
             alt={`Avatar ${index + 1}`}
           />
         ))}
-        <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-black text-center text-xs font-medium text-white cursor-default">
+        <div className="flex h-8 w-8 cursor-default items-center justify-center rounded-full border-2 border-white bg-black text-center text-xs font-medium text-white">
           +{numPeople}
         </div>
       </div>
