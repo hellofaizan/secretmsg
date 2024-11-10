@@ -20,6 +20,10 @@ export default async function UpdateUsername(username: any) {
   if (username.includes(" ")) {
     return { error: "Username cannot contain spaces." };
   }
+  
+  if (username.includes("@")) {
+    return { error: "Remove `@` from the username" };
+  }
 
   const user = await db.user.findFirst({
     where: { id: id },
