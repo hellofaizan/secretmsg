@@ -20,7 +20,7 @@ export default async function UpdateUsername(username: any) {
   if (username.includes(" ")) {
     return { error: "Username cannot contain spaces." };
   }
-  
+
   if (username.includes("@")) {
     return { error: "Remove `@` from the username" };
   }
@@ -58,16 +58,19 @@ export default async function UpdateUsername(username: any) {
     return { error: "Username has been already taken." };
   }
 
+  // convert username to small
+  const uname = username.toLowerCase();
+
   // update username
   await db.user.update({
     where: { id: id },
     data: {
-      username: username,
+      username: uname,
       usernameUpdatedAt: new Date(),
     },
   });
 
-  clearUserCache(id)
+  clearUserCache(id);
 
   return { success: "Username updated successfully!" };
 }
