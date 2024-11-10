@@ -23,9 +23,9 @@ export default async function page() {
             messages.map((item: any) => (
               <MessageCard message={item} key={item.id} />
             ))
-          ) : (
+          ) : session?.user.username ? (
             <ShareLink username={session?.user?.username || ""} />
-          )}
+          ) : null}
         </div>
       </div>
     </Suspense>

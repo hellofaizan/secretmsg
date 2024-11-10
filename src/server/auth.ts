@@ -4,6 +4,7 @@ import { db } from "./db";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getUserById } from "./user";
 import { Role } from "@prisma/client";
+import JoinedWebhook from "@/actions/joinedwebhook";
 
 declare module "next-auth" {
   /**
@@ -39,6 +40,8 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
           emailVerified: new Date(),
         },
       });
+
+      JoinedWebhook({ user });
     },
   },
   callbacks: {
