@@ -108,7 +108,7 @@ export default async function page({ user, username }: any) {
                 <ConfettiButton
                   variant={"default"}
                   size={"xxl"}
-                  className="mt-4 flex items-center gap-1 rounded-xl bg-[#E73336] p-3 px-8 text-xl text-white hover:bg-[#e74447]"
+                  className="mt-4 flex items-center gap-1 rounded-xl border border-[#E73336] text-[#E73336] p-2 px-6 text-lg hover:border-[#e74447]"
                 >
                   Join Pouzz Now
                 </ConfettiButton>

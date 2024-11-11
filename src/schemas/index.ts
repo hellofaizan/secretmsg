@@ -14,6 +14,10 @@ export const updateUnameSchema = z.object({
     })
     .max(20, {
       message: "Username must be at most 20 characters",
+    })
+    .regex(/^[a-zA-Z0-9._-]+$/, {
+      message:
+        "Username can only contain letters, numbers, periods, hyphens, and underscores",
     }),
 });
 
