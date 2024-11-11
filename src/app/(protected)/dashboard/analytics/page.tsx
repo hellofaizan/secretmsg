@@ -32,10 +32,10 @@ export default async function page() {
           <DashboardComponent userId={session?.id || ""} />
           <Graphs />
 
-          <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
+          {/* <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
             <ViewsByOSComp data={os} />
             <ViewsByCountryComp data={country} />
-          </div>
+          </div> */}
 
           <div className="w-full">
             <ViewsByReferrersComp data={referral} />

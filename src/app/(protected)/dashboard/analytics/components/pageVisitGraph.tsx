@@ -25,7 +25,7 @@ export default function PageVisitGraph({ className, data }: { className?: string
     <div className={className}>
       <Card>
         <CardHeader>
-          <CardTitle>Visitor Analytics</CardTitle>
+          <CardTitle>Visitors</CardTitle>
           <CardDescription>Analytics of last 10 days</CardDescription>
         </CardHeader>
         <CardContent>
