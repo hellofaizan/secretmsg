@@ -1,6 +1,6 @@
 # Pouzz | Anonymous confessions
 
-Pouzz App - Get ananymous confessions from friends, family, online random people
+Pouzz App - Get Anonymous confessions from friends, family, online random people
 
 ![image](https://github.com/user-attachments/assets/cfabed1f-2fce-48e2-aec7-b67f4c136efd)
 
