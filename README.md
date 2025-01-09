@@ -1,29 +1,108 @@
-# Create T3 App
+# Pouzz | Anonymous confessions
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Pouzz App - Get ananymous confessions from friends, family, online random people
 
-## What's next? How do I make an app with this?
+![image](https://github.com/user-attachments/assets/cfabed1f-2fce-48e2-aec7-b67f4c136efd)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Installation
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Prerequisites
 
-## Learn More
+- Node.js 18.17 or later
+- npm or yarn
+- Git
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Installation
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```bash
+git clone https://github.com/hellofaizan/secretmsg.git
+cd secretmsg
+```
 
-## How do I deploy this?
+2. Install dependencies
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+npm install
+# or
+yarn
+```
+
+3. Set up environment variables
+   Create a `.env` file in the root directory: These are env examples
+
+```env
+# Your environment variables here
+DATABASE_URL="postgresql://postgres:figscreen@localhost:5432/figscreen"
+
+NEXTAUTH_URL="http://localhost:3000"
+NEXT_PUBLIC_Website_URL="http://localhost:3000"
+NEXTAUTH_SECRET="testing"
+NODE_ENV="development"
+# development || production
+
+# Next Auth Google Provider
+GOOGLE_CLIENT_ID="google client id"
+GOOGLE_CLIENT_SECRET="google secret"
+
+# LemonSqueezy
+LEMONSQUEEZY_API_KEY="Paste apikey here"
+LEMONSQUEEZY_STORE_ID="Store id here settings/stores"
+NEXT_PUBLIC_LS_1_VARRIENT_ID="Veriant id of 1st product"
+NEXT_PUBLIC_LS_2_VARRIENT_ID="Veriant id of 2nd product"
+LEMONSQUEEZY_WEBHOOK_SECRET="secret"
+WEBHOOK_URL="http://localhost:3000/api/webhooks"
+
+# Resend
+RESEND_API_KEY="resend api key"
+EMAIL_FROM="onboarding@resend.dev"
+```
+
+4. Create table in database
+
+```bash
+yarn db:sync
+```
+
+4. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000)
+
+### Building for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+To start the production server:
+
+```bash
+npm start
+# or
+yarn start
+```
+
+## API Documentation
+
+### Authentication
+
+> [!NOTE]  
+> API under high priority development
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
